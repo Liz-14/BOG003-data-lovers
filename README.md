@@ -31,10 +31,10 @@ para poder decidir su estilo de pelea.
 
 Se desarrollo la idea principal en balsamic para poder maquetear la base de nuestro proyecto.
 
-<img src = "./src/img/pokeweb_pag1.png" alt = "prototipo de baja fidelidad"/>
+<img src = "prototype/pokeweb_pag1.png" alt = "prototipo de baja fidelidad"/>
 
 ### Mockup
 
 Se desarrolló en Illustrator, teniendo como base los colores usados en el juego de pokemon rojo fuego; el remake del primer juego creado de pokemon para game boy.
 
-![mockup pag1](./src/img/mockup-pokeWeb.png)
+![mockup pag1](prototype/mockup-pokeWeb.png)
