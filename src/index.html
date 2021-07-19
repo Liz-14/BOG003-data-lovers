@@ -6,13 +6,39 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <header>
+      <a href="index.html"><img src="img/logoPokeWeb.png" alt="Logo PokeWeb"></a>
+      <nav class="alphabet">
+        <ul>
+          <li> <a href="#"></a> A-D </li>
+          <li> <a href="#"></a> E-H </li>
+          <li> <a href="#"></a> I-L </li>
+          <li> <a href="#"></a> M-P </li>
+          <li> <a href="#"></a> Q-T </li>
+          <li> <a href="#"></a> V-W </li>
+          <li> <a href="#"></a> X-Z </li>
+        </ul>
+      </nav>
+      <div class="filter">
+        <div class="containerSearch">
+          <input type="text" name="search" id="search" placeholder="Buscar">
+          <button type="button" name="btnBuscar" id="btnSearch">Buscar</button>
+        </div>
+        <select class="filter" name="fitro">
+          <option value="">Estadísticas Base</option>
+          <option value="">Mayor a Menor</option>
+          <option value="">Menor a Mayor</option>
+        </select>
+      </div>
+    </header>
 
+
+    <button type="button" name="button" id="behind">atras</button>
     <div id = "pokemon-list">
 
     </div>
-    <button type="button" name="button" id="behind">atras</button>
     <button type="button" name="button" id="following">adelante</button>
+    <a href="#"></a>
 
     <script src="main.js" type="module"></script>
   </body>

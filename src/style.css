@@ -1,5 +1,20 @@
-body{
+*{
+  margin: 0;
+}
 
+header{
+  display: flex;
+}
+
+ul{
+  display: flex;
+}
+
+.filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #pokemon-list{
@@ -12,5 +27,5 @@ body{
   background-color: blue;
   margin: 10px;
   padding: 10px;
-  display: none; 
+  display: none;
 }
