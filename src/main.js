@@ -1,7 +1,6 @@
 //import { example } from './data.js';
-// import data from './data/lol/lol.js';
 import data from './data/pokemon/pokemon.js';
-//import pokemon from "./data/pokemon/pokemon.js";
+
 
 console.log(data.pokemon[0].name);
 console.log(data.pokemon.length);
