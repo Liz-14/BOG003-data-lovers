@@ -22,5 +22,19 @@
     "jest": "^27.0.1",
     "opener": "^1.5.1",
     "serve": "^12.0.0"
-  }
+  },
+  "description": "Nuestra POKEWEB esta pensada para niños entre 9 y 15 años, estratos 3 a 6 jugadores activos de pokemon go, que quieran conocer información y/o características de los pokemon que ofrece el juego para propósitos personales. Dichos niños deben poder acceder a un computador con internet y deben sabe cómo usar tanto el computador como navegar por la web.",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liz-14/BOG003-data-lovers.git"
+  },
+  "author": "Marlys",
+  "bugs": {
+    "url": "https://github.com/Liz-14/BOG003-data-lovers/issues"
+  },
+  "homepage": "https://github.com/Liz-14/BOG003-data-lovers#readme"
 }

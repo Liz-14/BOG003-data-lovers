@@ -2,7 +2,7 @@ import { example } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 //Contenedor que mostrara la list de pokemon
-const list = document.getElementById('pokemon-list');
+const list = document.getElementById('pokemonList');
 
 console.log("Total pokemon: " + data.pokemon.length);
 
@@ -18,10 +18,13 @@ data.pokemon.forEach((item, i) => {
   //se crea un div por cada pokemon
   let div = document.createElement('div');
   div.className = 'poke-div';
+  //Se crea el h2 q contendra el nombre del pokemon
+  let h2 = document.createElement('h2');
   //se obtiene el nombre, numero e imagen de la data
-  div.textContent = item.name;
+  h2.textContent = item.name;
   //se agrega cada div al index.html
   list.appendChild(div);
+  div.appendChild(h2);
   console.log("Nombre poke: " + item.name + " " + i);
   /*verifica si existe un dato vacio dentro del array y pone con opacidad 0
     el div que lo contiene*/
