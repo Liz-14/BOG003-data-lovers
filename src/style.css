@@ -1,8 +1,51 @@
-body{
-
+*{
+  margin: 0;
 }
 
-#pokemon-list{
+header{
+  display: flex;
+  background-color: black;
+}
+
+#logo{
+  padding: 2% 2%;
+  position: absolute;
+  flex-grow: 1;
+}
+
+.alphabet{
+  background: orange;
+  padding: 1% 5% 1% 5%;
+  margin-left: 20%;
+  flex-grow: 3;
+}
+
+ul{
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+li{
+  font-size: 20px;
+  background-color: pink;
+  margin: 2% 5%;
+  padding: 0% 3%
+}
+
+#filter{
+  background: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 5%;
+  flex-grow: 1;
+}
+
+#pokemonList{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -12,5 +55,5 @@ body{
   background-color: blue;
   margin: 10px;
   padding: 10px;
-  display: none; 
+  display: none;
 }
