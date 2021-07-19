@@ -7,7 +7,7 @@
   </head>
   <body>
     <header>
-      <img src="./img/logoPokeWeb.png" id="logoPokeWeb" alt="logo" />
+      <a href="index.html" id="logo"><img src="./img/logoPokeWeb.png" id="logoPokeWeb" alt="logo" /></a>
       <nav class="alphabet">
         <ul>
           <li><a href="#"> A - D </a></li>
@@ -20,7 +20,11 @@
         </ul>
       </nav>
       <div id="filter">
-        <input type="text" name="search" id="search" placeholder="Buscar" />
+        <div class="searchName">
+          <input type="text" name="search" id="search" placeholder="Buscar" />
+          <button type="button" name="btnBuscar" id="btnSearch">Buscar</button>
+        </div>
+
         <select name="select" id="select">
           <option>Estadisticas Bases</option>
           <option value="1" id="mayor">De Mayor a Menor</option>
@@ -40,19 +44,19 @@
 
       <section id="pokeGallery">
         <button type="button" id="behind" name="button"> ATRAS </button>
-        <div id="pokemonList"></div>
+        <div id="pokemonList">
+
+        </div>
         <button type="button" id="following" name="button"> ADELANTE </button>
       </section>
     </div>
  </main>
 
 <footer>
-<nav>
   <img src="./img/face.png" id="facebook" alt="logo facebook">
   <img src="./img/twitter.png" id="twitter" alt="logo twitter">
   <img src="./img/instagram(1).png" id="instagram" alt="logo instagram">
   <img src="./img/go.png" id="pokemonGo" alt="logo Pokemon Go">
-</nav>
 </footer>
     <script src="main.js" type="module"></script>
   </body>
