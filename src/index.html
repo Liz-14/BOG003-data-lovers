@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header> 
-
-      
+    <header>
+      <img src="./img/logoPokeWeb.png" id="logoPokeWeb" alt="logo" />
+      <nav class="alphabet">
+        <ul>
+          <li><a href="#"> A - D </a></li>
+          <li><a href="#"> E - H </a></li>
+          <li><a href="#"> I - L </a></li>
+          <li><a href="#"> M - P </a></li>
+          <li><a href="#"> Q - T </a></li>
+          <li><a href="#"> V - W </a></li>
+          <li><a href="#"> X - Z </a></li>
+        </ul>
+      </nav>
+      <div id="filter">
+        <input type="text" name="search" id="search" placeholder="Buscar" />
+        <select name="select" id="select">
+          <option>Estadisticas Bases</option>
+          <option value="1" id="mayor">De Mayor a Menor</option>
+          <option value="2" id="menor">De Menor a Mayor</option>
+        </select>
+      </div>
     </header>
-    <script src="main.js" type="module"></script> 
+
+  <main>
+    <div class="container">
+      <section id="explanation"> 
+       <h1>Bienvenido!</h1>
+        <p>Aquí podrás encontrar todos los Pokémon que atraparás en pokemon go. También podrás buscarlos por nombre u organizarlos alfabéticamente.
+        </p>
+        <p> Igualmente podrás organizar los Pokémon de acuerdo a sus estadísticas base. Las estadísticas base son las estadísticas que tiene un Pokémon cuando nace. El orden en que verás la lista dependerá de la suma total de dichas estadísticas. Esto vendría a decir que, cuanto mayor sea la suma, mejor (relativamente) sería el Pokémon. </p>
+      </section>
+
+      <section id="pokeGallery">
+        <button type="button" id="behind" name="button"> ATRAS </button>
+        <div id="pokemonList"></div>
+        <button type="button" id="following" name="button"> ADELANTE </button>
+      </section>
+    </div>
+ </main>
+
+<footer>
+<nav>
+  <img src="./img/face.png" id="facebook" alt="logo facebook">
+  <img src="./img/twitter.png" id="twitter" alt="logo twitter">
+  <img src="./img/instagram(1).png" id="instagram" alt="logo instagram">
+  <img src="./img/go.png" id="pokemonGo" alt="logo Pokemon Go">
+</nav>
+</footer>
+    <script src="main.js" type="module"></script>
   </body>
 </html>
