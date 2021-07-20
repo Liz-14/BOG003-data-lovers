@@ -167,20 +167,58 @@ main{
 .poke-div{
   background-color: #F27B35;
   margin: 5%;
-  padding: 2%;
   flex-grow: 1;
   display: none;
   text-align: center;
   border-radius: 15px;
-  text-transform: uppercase;
   color: white;
+  cursor: pointer;
+  position: relative;
+  width: 15vw;
+  max-height: 35vh;
+  padding-bottom: 1%;
+}
 
+.poke-div h2{
+  text-transform: uppercase;
+  padding-bottom: 4%;
+}
+
+.info-div{
+  background-color: rgba(115, 34, 34, 0.7);
+  position: absolute;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.poke-div:hover > .info-div{
+  opacity: 1;
+  visibility: visible;
+}
+
+.p-num{
+  font-size: 27px;
+  font-weight: bold;
+  padding-bottom: 1%;
+}
+
+.p-type{
+  text-transform: capitalize;
+  font-size: 22px;
+  padding-bottom: 1%;
 }
 
 .poke-div img{
   width: 180px;
   height: 180px;
   margin-bottom: 5%;
+  padding-top: 10%;
 }
 
 #behind, #following{
