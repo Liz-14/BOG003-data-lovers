@@ -15,10 +15,13 @@ header{
 }
 
 #logo{
-  padding: 2% 3%;
+  padding: 2% 1.5%;
   position: absolute;
   flex-grow: 1;
-  margin-top: 1%;
+}
+
+#logo img{
+  width: 65%;
 }
 
 .alphabet{
@@ -26,8 +29,6 @@ header{
   flex-grow: 3;
   font-weight: 900;
 }
-
-
 
 ul{
   display: flex;
@@ -95,7 +96,7 @@ a{
 }
 
 #search:hover{
-  background: #F27B35;
+  background: #ED9264;
 }
 
 .searchName{
@@ -115,17 +116,17 @@ a{
 }
 
 #select:hover{
-  background: #F27B35;
+  background: #ED9264;
 }
 
 main{
   background-size: cover;
-  padding: 4%;
+  padding: 5%;
 }
 
 .container{
   background-color: rgba(242, 205, 94, 0.64);
-  padding: 5% 10%;
+  padding: 5% 3%;
   border-radius: 20px;
 }
 
@@ -136,6 +137,8 @@ main{
   color: #19212D;
   border-top: #402401 6px double;
   border-bottom: #402401 6px double;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 #explanation h1{
@@ -148,22 +151,56 @@ main{
 
 }
 
+#pokeGallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #pokemonList{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-grow: 3;
 }
 
 .poke-div{
   background-color: #F27B35;
   margin: 5%;
-  padding: 5%;
+  padding: 2%;
   flex-grow: 1;
   display: none;
   text-align: center;
   border-radius: 15px;
   text-transform: uppercase;
   color: white;
+
+}
+
+.poke-div img{
+  width: 180px;
+  height: 180px;
+  margin-bottom: 5%;
+}
+
+#behind, #following{
+  width: 80px;
+  height: 80px;
+  background-color: #19212D;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+#behind{
+  padding: 5% 7% 4% 5%;
+}
+
+#following{
+  padding: 5% 3% 4% 10%;
+}
+
+#behind:hover, #following:hover{
+  background-color: #304154;
 }
 
 footer{
