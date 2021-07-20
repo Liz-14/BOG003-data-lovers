@@ -1,48 +1,151 @@
 *{
   margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+body{
+  background-image: url(img/FondoMain.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header{
   display: flex;
-  background-color: black;
+  background: radial-gradient(#FF8D00 25%, #000000 140%);
 }
 
 #logo{
-  padding: 2% 2%;
+  padding: 2% 3%;
   position: absolute;
   flex-grow: 1;
+  margin-top: 1%;
 }
 
 .alphabet{
-  background: orange;
-  padding: 1% 5% 1% 5%;
-  margin-left: 20%;
+  margin-left: 21%;
   flex-grow: 3;
+  font-weight: 900;
 }
 
+
+
 ul{
-  background-color: white;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
 }
 
 li{
-  font-size: 20px;
-  background-color: pink;
-  margin: 2% 5%;
-  padding: 0% 3%
+  display: flex;
+  font-size: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.nav1, .nav2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.nav1{
+  border-bottom: #402401 4px solid;
+}
+
+.nav2{
+  border-top: #402401 2px solid;
+  margin-top: 0.2%;
+}
+
+a{
+  text-decoration: none;
+  color: #402401;
 }
 
 #filter{
-  background: blue;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2% 5%;
   flex-grow: 1;
+}
+
+#btnSearch {
+  background-color: #F2CD5E;
+  right: 8.5vw;
+  border-style: none;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-bottom: 5%;
+}
+
+#search{
+  background-color: #F2CD5E;
+  border-style: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  position: relative;
+  padding-left: 20px;
+  font-size: 18px;
+  margin-bottom: 5%;
+  margin-top: 0;
+  transition: all 0.25s ease;
+}
+
+#search:hover{
+  background: #F27B35;
+}
+
+.searchName{
+  display: flex;
+}
+
+#select{
+  margin-top: 2%;
+  border: none;
+  background: #F2CD5E;
+  padding: 2% 10%;
+  color: #3E4959;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+#select:hover{
+  background: #F27B35;
+}
+
+main{
+  background-size: cover;
+  padding: 4%;
+}
+
+.container{
+  background-color: rgba(242, 205, 94, 0.64);
+  padding: 5% 10%;
+  border-radius: 20px;
+}
+
+#explanation{
+  background-color: rgba(242, 205, 94, 0.8);
+  padding: 5%;
+  text-align: center;
+  color: #19212D;
+  border-top: #402401 6px double;
+  border-bottom: #402401 6px double;
+}
+
+#explanation h1{
+  font-size: 36px;
+  font-weight: bold;
+}
+
+#explanation p{
+  font-size: 24px;
+
 }
 
 #pokemonList{
@@ -52,8 +155,19 @@ li{
 }
 
 .poke-div{
-  background-color: blue;
-  margin: 10px;
-  padding: 10px;
+  background-color: #F27B35;
+  margin: 5%;
+  padding: 5%;
+  flex-grow: 1;
   display: none;
+  text-align: center;
+  border-radius: 15px;
+  text-transform: uppercase;
+  color: white;
+}
+
+footer{
+  background-color: #402401;
+  text-align: center;
+  padding: .5%;
 }
