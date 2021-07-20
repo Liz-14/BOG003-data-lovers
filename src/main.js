@@ -1,70 +1,89 @@
-//import { example } from './data.js';
+import { example } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
+//Contenedor que mostrara la list de pokemon
+const list = document.getElementById('pokemonList');
 
-console.log(data.pokemon[0].name);
-console.log(data.pokemon.length);
+console.log("Total pokemon: " + data.pokemon.length);
 
-for (let i = 0; i < data.pokemon.length; i++) {
-  console.log(data.pokemon[i].name);
-
-
-  let h2 = document.createElement("h2");
-  const div = document.getElementById("root");
-  //div.appendChild(h2);
-
-  let pokeCard = document.createElement("div");
-  pokeCard.className = "pokeCard";
-  div.appendChild(pokeCard);
-  pokeCard.appendChild(h2);
-
-  let h1 = document.createElement("h1");
-  h1.textContent = data.pokemon[i].name;
-  pokeCard.appendChild(h1);
+/*verifica si la cantidad de datos en el array es divisible por 6
+  de lo contrario agrega datos vacios hasta se se cumpla la condicion*/
+while(data.pokemon.length % 6 != 0){
+  data.pokemon.push('');
 }
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-/*let pokemonSearch;
-
-const container = document.querySelector('.container');
-
-window.onload = complet(); //cada vez que se recargue la pagina
-
-function complet() {
-  let pokemonSearch = pokemon.results; //llama data completa
-  let start = 0;
-  let end = 50;
-  page()
-}
-
-//funcion de paginacion
-function page() {
-   //console.log(dataSearch);
-  //console.log("entra page");
-  let dataSlice = pokemonSearch;
-  container.innerHTML = pokemonSlice.slice(start, end).map((item) => `
-  <div class="card">
-  <button class="cardImage">
-      <img src="${item.image}" />
-      <h1 class="nameCard">${item.name}</h1>
-      </button>        
-</div>
-    `).join("");
-  //console.log(start, end);
-  if (cross === 1) {
-    window.scrollTo(0, 0);
+/*Funcion que permite obtener la lista de pokemon del data y mostrarlo
+  en el index.html*/
+data.pokemon.forEach((item, i) => {
+  //se crea un div por cada pokemon
+  let div = document.createElement('div');
+  div.className = 'poke-div';
+  //Se crea el h2 q contendra el nombre del pokemon
+  let h2 = document.createElement('h2');
+  //se obtiene el nombre, numero e imagen de la data
+  h2.textContent = item.name;
+  //se agrega cada div al index.html
+  list.appendChild(div);
+  div.appendChild(h2);
+  console.log("Nombre poke: " + item.name + " " + i);
+  /*verifica si existe un dato vacio dentro del array y pone con opacidad 0
+    el div que lo contiene*/
+  if(item == ""){
+    div.style.opacity = '0';
   }
-  moreInfo();
-}*/
+});
+
+let num = 6
+// se muestran los primeros 6 pokemon de la lista
+for(let i = num - 6; i < num; i++){
+  document.getElementsByClassName('poke-div')[i].style.display = 'block';
+}
+
+/*Funcion que permite mostrar los siguientes 6 pokemon de la lista, y
+oculta los anteriores 6*/
+const following = () => {
+  //Sale de la funcion si se supera el tamaño del array
+  if(num == data.pokemon.length){
+    return
+  }
+  else {
+    //Contador que permite avanzar por el array
+    num += 6;
+    //permite mostrar solo 6 pokemon en la pantalla
+    for(let i = num - 6; i < num; i++){
+      document.getElementsByClassName('poke-div')[i].style.display = 'block';
+    }
+    for(let i = num - 12; i < num - 6; i++){
+      document.getElementsByClassName('poke-div')[i].style.display = 'none';
+    }
+  }
+}
+/*Funcion que permite mostrar los anteriores 6 pokemon de la lista, y
+oculta los siguientes 6*/
+const behind = () => {
+  //Sale de la funcion si es menos de lo mostrado en pantalla
+  if (num == 6){
+    return
+  }
+  else{
+    //Contador que permite retroceder por el array
+    num -= 6;
+    //permite mostrar solo 6 pokemon en la pantalla
+    for(let i = num - 6; i < num; i++){
+      document.getElementsByClassName('poke-div')[i].style.display = 'block';
+    }
+    for(let i = num; i < num + 6; i++){
+      document.getElementsByClassName('poke-div')[i].style.display = 'none';
+    }
+  }
+}
+
+//Evento que permite el funcionamiento del boton "adelante"
+let btnFollowing = document.getElementById('following');
+btnFollowing.addEventListener("click", following);
+
+//Evento que permite el funcionamiento del boton "atras"
+let btnBehind = document.getElementById('behind');
+btnBehind.addEventListener("click", behind);
+
+//console.log(data.pokemon);
