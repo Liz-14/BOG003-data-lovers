@@ -4,25 +4,32 @@
     <meta charset="utf-8" />
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <a href="index.html" id="logo"><img src="./img/logoPokeWeb.png" id="logoPokeWeb" alt="logo" /></a>
       <nav class="alphabet">
         <ul>
-          <li><a href="#"> A - D </a></li>
-          <li><a href="#"> E - H </a></li>
-          <li><a href="#"> I - L </a></li>
-          <li><a href="#"> M - P </a></li>
-          <li><a href="#"> Q - T </a></li>
-          <li><a href="#"> V - W </a></li>
-          <li><a href="#"> X - Z </a></li>
+          <div class="nav1">
+            <li><a href="#"> A - D </a></li>
+            <li><a href="#"> E - H </a></li>
+            <li><a href="#"> I - L </a></li>
+            <li><a href="#"> M - P </a></li>
+          </div>
+          <div class="nav2">
+            <li><a href="#"> Q - T </a></li>
+            <li><a href="#"> V - W </a></li>
+            <li><a href="#"> X - Z </a></li>
+          </div>
         </ul>
       </nav>
       <div id="filter">
         <div class="searchName">
           <input type="text" name="search" id="search" placeholder="Buscar" />
-          <button type="button" name="btnBuscar" id="btnSearch">Buscar</button>
+          <button type="button" name="btnBuscar" id="btnSearch"> <img src="img/btnBuscar.png" alt="buscar"> </button>
         </div>
 
         <select name="select" id="select">
@@ -36,9 +43,9 @@
   <main>
     <div class="container">
       <section id="explanation">
-       <h1>Bienvenido!</h1>
+       <h1>¡Bienvenido!</h1><br>
         <p>Aquí podrás encontrar todos los Pokémon que atraparás en pokemon go. También podrás buscarlos por nombre u organizarlos alfabéticamente.
-        </p>
+        </p><br>
         <p> Igualmente podrás organizar los Pokémon de acuerdo a sus estadísticas base. Las estadísticas base son las estadísticas que tiene un Pokémon cuando nace. El orden en que verás la lista dependerá de la suma total de dichas estadísticas. Esto vendría a decir que, cuanto mayor sea la suma, mejor (relativamente) sería el Pokémon. </p>
       </section>
 
@@ -53,10 +60,10 @@
  </main>
 
 <footer>
-  <img src="./img/face.png" id="facebook" alt="logo facebook">
-  <img src="./img/twitter.png" id="twitter" alt="logo twitter">
-  <img src="./img/instagram(1).png" id="instagram" alt="logo instagram">
-  <img src="./img/go.png" id="pokemonGo" alt="logo Pokemon Go">
+  <a href="https://www.facebook.com/PokemonGO"><img src="./img/face.png" id="facebook" alt="logo facebook"></a>
+  <a href="https://twitter.com/pokemongoapp?lang=es"><img src="./img/twitter.png" id="twitter" alt="logo twitter"></a>
+  <a href="https://twitter.com/pokemongoapp?lang=es"><img src="./img/instagram(1).png" id="instagram" alt="logo instagram"></a>
+  <a href="http://www.pokemongo.com/"><img src="./img/go.png" id="pokemonGo" alt="logo Pokemon Go"></a>
 </footer>
     <script src="main.js" type="module"></script>
   </body>
