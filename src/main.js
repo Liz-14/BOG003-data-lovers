@@ -18,6 +18,9 @@ data.pokemon.forEach((item, i) => {
   //se crea un div por cada pokemon
   let div = document.createElement('div');
   div.className = 'poke-div';
+
+  let divInfo = document.createElement('div');
+  divInfo.className = 'info-div'
   //Se crea el h2 q contendra el nombre del pokemon
   let h2 = document.createElement('h2');
   let h3 = document.createElement('h3');
@@ -25,13 +28,14 @@ data.pokemon.forEach((item, i) => {
   let elemento = document.createElement('span');
   //se obtiene el nombre, numero e imagen de la data
   h2.textContent = item.name;
-  h3.textContent = item.num;
+  h3.textContent = '# ' + item.num;
   imagen.src = item.img;
   elemento.textContent = item.type;
   //se agrega cada div al index.html
   list.appendChild(div);
-  div.appendChild(h3);
-  div.appendChild(elemento);
+  div.appendChild(divInfo);
+  divInfo.appendChild(h3);
+  divInfo.appendChild(elemento);
   div.appendChild(imagen);
   div.appendChild(h2);
   console.log("Nombre poke: " + item.name + " " + i);
