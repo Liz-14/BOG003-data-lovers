@@ -23,7 +23,8 @@
           <li><a href="#"> E - H </a></li>
           <li><a href="#"> I - L </a></li>
           <li><a href="#"> M - P </a></li>
-          <span></span>
+          <span id="line1"></span>
+          <span id="line2"></span>
           <li><a href="#"> Q - T </a></li>
           <li><a href="#"> V - W </a></li>
           <li><a href="#"> X - Z </a></li>
@@ -32,7 +33,7 @@
       <div id="filter">
         <div class="searchName">
           <input type="text" name="search" id="search" placeholder="Buscar" />
-          <button type="button" name="btnBuscar" id="btnSearch"><img src="./img/target.png" alt=""></button>
+          <button type="button" name="btnBuscar" id="btnSearch"><img src="./img/btnBuscar.png" alt=""></button>
         </div>
 
         <select name="select" id="select">
@@ -44,9 +45,8 @@
     </header>
 
     <main>
-      <section>
-        <div class="welcome-text">
-          <h1>Bienvenido!</h1>
+      <section id="welcome-text">
+          <h1>¡Bienvenido!</h1> <br>
           <p>
             Aquí podrás encontrar todos los Pokémon que atraparás en pokemon go.
             También podrás buscarlos por nombre u organizarlos alfabéticamente. <br> <br>
@@ -58,41 +58,17 @@
             decir que, cuanto mayor sea la suma, mejor (relativamente) sería el
             Pokémon.
           </p>
-        </div>
-        <div id="pokeGallery">
-          <button type="button" id="behind" name="button"><</button>
-          <div id="pokemonList"></div>
-          <button type="button" id="following" name="button">></button>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <footer>
-      <nav>
-        <ul>
-          <li>
-            <a href="https://www.facebook.com/" target="_blank">
-              <img src="./img/face.png" alt="logo facebook"
-            /></a>
-          </li>
-          <li>
-            <a href="https://twitter.com/home?lang=es" target="_blank">
-              <img src="./img/twitter.png" alt="logo twitter"
-            /></a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/" target="_blank">
-              <img src="./img/instagram(1).png" alt="logo instagram" />
-            </a>
-          </li>
-          <li>
-            <a href="https://pokemongolive.com/es/" target="_blank">
-              <img src="./img/go.png" alt="logo Pokemon Go" />
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </footer>
+        <section id="pokeGallery">
+          <button type="button" id="behind" name="button"> <img src="./img/btnAtras.png" alt="atras"> </button>
+          <div id="pokemonList">
+
+          </div>
+          <button type="button" id="following" name="button"><img src="./img/btnAdelante.png" alt="adelante"></button>
+        </section>
+
+    </main>
 
 <footer>
   <a href="https://www.facebook.com/PokemonGO"><img src="./img/face.png" id="facebook" alt="logo facebook"></a>
