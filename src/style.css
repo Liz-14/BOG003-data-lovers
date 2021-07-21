@@ -1,52 +1,67 @@
 *{
   margin: 0;
+  font-family: 'Lato', sans-serif;
 }
 body{
   background-image: url(./img/bg-test.png);
-  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  
 }
+
 main{
   max-width: 80%;
   margin: 0 auto;
-  background-color: rgb(255 255 255 / 50%);
-  margin-top: 3rem;
+  background-color: rgb(242 205 94 / 64%);
+  margin-top: 5rem;
   padding: 15px;
   border-radius: 30px;
+  margin-bottom: 5rem;
 }
+
 header{
   display: grid;
   background-color: black;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 20% 60% 20%;
   grid-gap: 10px;
   grid-auto-rows: minmax(60px, auto);
   background: rgb(255,140,0);
-background: radial-gradient(circle, rgba(255,140,0,1) 18%, rgba(113,62,0,1) 67%);
-padding:10px;
+  background: radial-gradient(circle, rgba(255,140,0,1) 18%, rgba(113,62,0,1) 67%);
 }
-
 
 .logo{
   grid-column: 1/2;
   grid-row: 1;
   position: relative;
 }
+
 #logo{
+  margin-top: 6%;
   position:absolute;
-  }
+}
+
+#logo img{
+  padding-left: 10%;
+  padding-top: 3%;
+  width: 100%;
+}
 
 .alphabet{
   grid-column: 2/3;
   grid-row: 1;
 }
+
 .alphabet span{
   display: block;
-    width: 100%;
-    background-color: #000000;
-    border-bottom: 1px solid #000;
+  width: 90%;
+}
+
+#line1{
+  border-bottom: 4px solid #402401;
+}
+
+#line2{
+  margin-top: .3%;
+  border-bottom: 2px solid #402401;
 }
 
 .alphabet ul{
@@ -58,13 +73,14 @@ padding:10px;
 }
 
 .alphabet li{
-  font-size: 20px;
-  width:90px;
+  font-size: 36px;
+  margin: 1% 5%;
   list-style: none;
   text-align: center;
 }
+
 .alphabet li a{
-  color: #000;
+  color: #402401;
   font-weight: 800;
   text-decoration: none;
 }
@@ -72,101 +88,188 @@ padding:10px;
 #filter{
   grid-column: 3/3;
   grid-row: 1;
+  margin: auto;
+  padding-right: 5%;
 }
-#filter .searchName input{
+
+.searchName input{
   box-shadow: none;
-  background-color: rgb(255 255 255 / 50%);
+  background-color: #F2CD5E;
   border: 0;
-  height: 30px;
+  height: 35px;
   border-radius: 30px;
-  width: 93%;
-  margin: 0 auto;
+  width: 110%;
   font-size: 1.3rem;
-  color: #000000;
+  color: #F2CD5E;
   padding-left: 20px;
+  margin-bottom: 5%;
+  transition: all 0.25s ease;
 }
-#filter .searchName{
+
+#search:hover{
+  background: #ED9264;
+}
+
+.searchName{
   width:80%;
-  margin:0 auto;
   position: relative;
 }
-#filter .searchName button{
+.searchName button{
   background-color: transparent;
-  border-radius: 100%;
   box-shadow: none;
   border: 0;
   position: absolute;
-  right: 0;
+  right: -45px;
   top: 0;
+}
 
+.searchName button img{
+  width:35px;
+  height:35px;
 }
-#filter .searchName button img{
-  width:30px;
-  height:30px;
-}
+
 #filter select{
-  background-color: rgb(255 255 255 / 50%);
+  background-color: #F2CD5E;
   border: 0;
   box-shadow: none;
-  height: 30px;
-  width: 80%;
+  height: 34px;
+  width: 96%;
   margin: 0 auto;
   display: block;
   border-radius: 50px;
-  margin-top: 10px;
+  margin-top: 5%;
+  padding-left: 5%;
+  margin-right: 3%;
+  font-size: 16px;
+  color: #3E4959;
+  font-weight: 600;
 }
-
 
 #pokemonList{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-grow: 4;
 }
 
 .poke-div{
   background-color: #F27B35;
   margin-bottom: 20px;
-  padding: 10px;
+  padding-bottom: 3%;
   display: none;
   width: 30%;
   text-align: center;
   border-radius: 20px;
+  height: auto;
+  position: relative;
+  cursor: pointer;
 }
-.welcome-text{
-  background-color: rgb(255 255 255 / 50%);
+#welcome-text{
+  background-color: rgb(242 205 94 / 80%);
     padding: 2rem;
     text-align: center;
     max-width: 70%;
     margin: 0 auto;
-    border-bottom: 2px solid;
-    border-top: 2px solid;
-    margin-bottom: 2rem;
+    border-bottom: #402401 10px double;
+    border-top: #402401 10px double;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    color: #19212D;
 }
+
+#welcome-text h1{
+  font-size: 36px;
+  font-weight: 700;
+}
+
+#welcome-text p{
+  font-size: 24px;
+}
+
+.info-div h3{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+
+.info-div span{
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.info-div{
+  background-color: rgba(115, 34, 34, 0.7);
+  position: absolute;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  color: white;
+}
+
+.poke-div:hover > .info-div{
+  opacity: 1;
+  visibility: visible;
+}
+
 .poke-div h2{
   color: #ffffff;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    padding-top: 4%;
+    padding-bottom: 15%;
+    font: 34px;
 }
 .poke-div img{
   display: block;
   margin: 0 auto;
+  height: 70%;
+  margin-top: 10%;
 }
 #pokeGallery{
-  position: relative;
+  display: flex;
 }
 #pokeGallery button{
   box-shadow: none;
-  top: 40%;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
+  margin: auto;
+  margin-left: 3%;
+  margin-right: 3%;
+  max-width: 70px;
+  height: 70px;
+  border-radius: 50%;
   border: 0;
   cursor: pointer;
+  background-color: #19212D;
 }
 #pokeGallery button#behind{
-left:-10%;
+  padding-right: .6%;
+  flex-grow: 1;
+  transition: all 0.25s ease;
 }
 #pokeGallery button#following{
-  right: -10%;
+  padding-left: .6%;
+  flex-grow: 1;
+  transition: all 0.25s ease;
 }
 
+#behind:hover, #following:hover{
+  background-color: #304154;
+  border: #19212D 1px solid;
+  transition: all 0.25s ease;
+}
+
+#behind:active, #following:active{
+  border: #19212D 3px solid;
+}
+
+footer{
+  background-color: #492202;
+  text-align: center;
+  padding: .5%;
+}
