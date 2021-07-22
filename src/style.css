@@ -16,6 +16,7 @@ main{
   padding: 15px;
   border-radius: 30px;
   margin-bottom: 5rem;
+  height: 125vh;
 }
 
 header{
@@ -73,7 +74,7 @@ header{
 }
 
 .alphabet li{
-  font-size: 36px;
+  font-size: 32px;
   margin: 1% 5%;
   list-style: none;
   text-align: center;
@@ -132,7 +133,7 @@ header{
   background-color: #F2CD5E;
   border: 0;
   box-shadow: none;
-  height: 34px;
+  height: 37px;
   width: 96%;
   margin: 0 auto;
   display: block;
@@ -154,13 +155,13 @@ header{
 
 .poke-div{
   background-color: #F27B35;
-  margin-bottom: 20px;
+  margin-bottom: 3%;
   padding-bottom: 3%;
   display: none;
   width: 30%;
   text-align: center;
   border-radius: 20px;
-  height: auto;
+  height: 45%;
   position: relative;
   cursor: pointer;
 }
@@ -180,7 +181,7 @@ header{
 }
 
 #welcome-text h1{
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 700;
 }
 
@@ -191,13 +192,15 @@ header{
 .info-div h3{
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 2%
+  margin-bottom: 3%
 }
 
-.info-div span{
+.type{
   font-size: 18px;
   font-weight: bold;
-  text-transform: capitalize;
+  padding: 1% 4% 1% 4%;
+  border-radius: 15px;
+  margin: 2%;
 }
 
 .info-div{
@@ -207,7 +210,7 @@ header{
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   padding-top: 3%;
-  padding-bottom: 3%;
+  padding-bottom: 5%;
   transition: all 500ms ease-out;
   opacity: 0;
   visibility: hidden;
@@ -222,19 +225,21 @@ header{
 .poke-div h2{
   color: #ffffff;
     text-transform: uppercase;
-    padding-top: 4%;
-    padding-bottom: 15%;
+    padding: 4%;
     font: 34px;
 }
+
 .poke-div img{
   display: block;
   margin: 0 auto;
   height: 70%;
   margin-top: 10%;
 }
+
 #pokeGallery{
   display: flex;
 }
+
 #pokeGallery button{
   box-shadow: none;
   margin: auto;
@@ -247,11 +252,13 @@ header{
   cursor: pointer;
   background-color: #19212D;
 }
+
 #pokeGallery button#behind{
   padding-right: .6%;
   flex-grow: 1;
   transition: all 0.25s ease;
 }
+
 #pokeGallery button#following{
   padding-left: .6%;
   flex-grow: 1;
