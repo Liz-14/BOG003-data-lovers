@@ -77,12 +77,24 @@ header{
   margin: 1% 5%;
   list-style: none;
   text-align: center;
+  width: 6vw;
 }
 
 .alphabet li a{
   color: #402401;
   font-weight: 800;
   text-decoration: none;
+  padding: 1%;
+}
+
+li a:hover{
+  color: #19212D;
+}
+
+li a:focus, li a:active{
+  padding: 0% 8%;
+  border: 3px double #402401;
+  transition: all .1s;
 }
 
 #filter{
