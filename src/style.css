@@ -274,6 +274,14 @@ li a:focus, li a:active{
   flex-grow: 1;
   transition: all 0.25s ease;
 }
+footer nav ul{
+  padding: 0;
+  text-align: center;
+  padding:10px;
+}
+footer nav ul li{
+  display: inline-block;
+}
 
 #behind:hover, #following:hover{
   background-color: #304154;
