@@ -13,10 +13,9 @@ main{
   margin: 0 auto;
   background-color: rgb(242 205 94 / 64%);
   margin-top: 5rem;
-  padding: 15px;
+  padding: 1% 1% 2% 1%;
   border-radius: 30px;
   margin-bottom: 5rem;
-  height: 125vh;
 }
 
 header{
@@ -161,7 +160,6 @@ header{
   width: 30%;
   text-align: center;
   border-radius: 20px;
-  height: 45%;
   position: relative;
   cursor: pointer;
 }
@@ -233,7 +231,7 @@ header{
   display: block;
   margin: 0 auto;
   height: 70%;
-  margin-top: 10%;
+  margin-top: 7%;
 }
 
 #pokeGallery{
