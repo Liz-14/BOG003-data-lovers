@@ -23,6 +23,20 @@ const pokeTemplate = (pokeData) => {
     //se crea un div por cada pokemon
     let div = document.createElement('div');
     div.className = 'poke-div';
+
+    //se agrega cada div al index.html
+    list.appendChild(div);
+
+    /*verifica si existe un dato vacio dentro del array y pone con opacidad 0
+      el div que lo contiene*/
+    if(item == ""){
+      div.style.opacity = '0';
+    }
+  });
+
+  //Poner Tipo/elemento con sus respectivos estilos
+  check(pokeData).pokeDataType.forEach((item, i) => {
+    const pokeDiv = document.getElementsByClassName('poke-div')[i];
     // Div q contendra #pokedex y tipo/elemnto
     let divInfo = document.createElement('div');
     divInfo.className = 'info-div'
@@ -35,20 +49,11 @@ const pokeTemplate = (pokeData) => {
     h3.textContent = '# ' + item.num;
     imagen.src = item.img;
     //se agrega cada div al index.html
-    list.appendChild(div);
-    div.appendChild(divInfo);
+    pokeDiv.appendChild(divInfo);
     divInfo.appendChild(h3);
-    div.appendChild(imagen);
-    div.appendChild(h2);
-    /*verifica si existe un dato vacio dentro del array y pone con opacidad 0
-      el div que lo contiene*/
-    if(item == ""){
-      div.style.opacity = '0';
-    }
-  });
+    pokeDiv.appendChild(imagen);
+    pokeDiv.appendChild(h2);
 
-  //Poner Tipo/elemento con sus respectivos estilos
-  check(pokeData).pokeDataType.forEach((item, i) => {
     item.type.forEach((element, j) => {
       let type = document.createElement('span');
       type.className = 'type';
@@ -346,6 +351,6 @@ navXZ.addEventListener("click", groupXZ)
 let btnSearch = document.getElementById('btnSearch');
 btnSearch.addEventListener("click", pokeSearch);
 
-//Evento que permite el funcionamiento del boton "search"
+//Evento que permite el funcionamiento del "search" en tiempo real
 let inputSearch = document.getElementById('search');
 inputSearch.addEventListener("keyup", pokeSearch);
