@@ -307,7 +307,7 @@ const groupQT = () => {
       pokeTemplate(resultado);
       pokeGallery();
     }
-
+    
 //Se llama el template de las card y se crea la galeria
 pokeTemplate(data.pokemon);
 pokeGallery();
@@ -341,10 +341,6 @@ navVW.addEventListener("click", groupUW);
 
 let navXZ = document.getElementById('xz');
 navXZ.addEventListener("click", groupXZ)
-
-//Evento que permite el funcionamiento del boton "search"
-let btnSearch = document.getElementById('btnSearch');
-btnSearch.addEventListener("click", pokeSearch);
 
 //Evento que permite el funcionamiento del boton "search"
 let inputSearch = document.getElementById('search');
