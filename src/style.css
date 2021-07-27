@@ -26,10 +26,6 @@ header{
   grid-auto-rows: minmax(60px, auto);
   background: rgb(255,140,0);
   background: radial-gradient(circle, rgba(255,140,0,1) 18%, rgba(113,62,0,1) 67%);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 99;
 }
 
 .logo{
@@ -81,20 +77,37 @@ header{
   margin: 1% 5%;
   list-style: none;
   text-align: center;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+  width: 6vw;
+>>>>>>> fe0436a (xxx)
 }
 
-.alphabet li button{
+.alphabet li a{
   color: #402401;
   font-weight: 800;
   text-decoration: none;
+<<<<<<< HEAD
   background: transparent;
     border: 0;
     box-shadow: 0;
     font-size: 1.8rem;
     cursor: pointer;
+=======
+  padding: 1%;
+>>>>>>> fe0436a (xxx)
 }
 
+li a:hover{
+  color: #19212D;
+}
+
+li a:focus, li a:active{
+  padding: 0% 8%;
+  border: 3px double #402401;
+  transition: all .1s;
+}
 
 #filter{
   grid-column: 3/3;
