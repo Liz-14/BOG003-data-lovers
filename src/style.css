@@ -81,18 +81,12 @@ header{
   margin: 1% 5%;
   list-style: none;
   text-align: center;
-  cursor: pointer;
 }
 
 .alphabet li button{
   color: #402401;
   font-weight: 800;
   text-decoration: none;
-  background: transparent;
-    border: 0;
-    box-shadow: 0;
-    font-size: 1.8rem;
-    cursor: pointer;
 }
 
 
