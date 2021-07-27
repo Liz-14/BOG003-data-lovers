@@ -198,7 +198,7 @@ const groupAD = () => {
     //se muestran las card por pantalla
     pokeGallery();
   }
-  // grupo E-H Navbar 
+  // grupo E-H Navbar
   const groupEH = () => {
     galleryClean();
     let pokeEH = [];
@@ -214,7 +214,7 @@ const groupAD = () => {
       pokeGallery();
     }
 
-    //grupo I-L navBar 
+    //grupo I-L navBar
  const groupIL = () => {
   galleryClean();
   let pokeIL = [];
@@ -293,6 +293,21 @@ const groupQT = () => {
       pokeGallery();
     }
 
+    //Busqueda de pokemon por nombre
+    const pokeSearch = () => {
+      galleryClean();
+      let pokeName = document.getElementById('search').value;
+      let pokeData = check(data.pokemon).pokeDataType;
+      let resultado = [];
+      pokeData.forEach((item, i) => {
+        if (item.name.includes(pokeName)) {
+          resultado.push(pokeData[i]);
+        }
+      });
+      pokeTemplate(resultado);
+      pokeGallery();
+    }
+    
 //Se llama el template de las card y se crea la galeria
 pokeTemplate(data.pokemon);
 pokeGallery();
@@ -314,16 +329,19 @@ navEH.addEventListener("click", groupEH);
 
 let navIL = document.getElementById('il');
 navIL.addEventListener("click", groupIL);
- 
+
 let navMP = document.getElementById('mp');
 navMP.addEventListener("click", groupMP);
- 
+
 let navQT = document.getElementById('qt');
 navQT.addEventListener("click", groupQT);
- 
+
 let navVW = document.getElementById('uw');
 navVW.addEventListener("click", groupUW);
- 
+
 let navXZ = document.getElementById('xz');
 navXZ.addEventListener("click", groupXZ)
 
+//Evento que permite el funcionamiento del boton "search"
+let btnSearch = document.getElementById('btnSearch');
+btnSearch.addEventListener("click", pokeSearch);
