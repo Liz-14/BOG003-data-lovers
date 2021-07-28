@@ -132,6 +132,8 @@ const pokeGallery = () => {
 
 //Limpia galeria
 const galleryClean = () =>{
+  //volver a iniciar contador
+  num = 6;
   //nodo padre
   let pokeList = document.getElementById('pokemonList');
   //ciclo que permite eliminar los nodos hijos
