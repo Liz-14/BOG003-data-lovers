@@ -1,6 +1,7 @@
 *{
   margin: 0;
   font-family: 'Lato', sans-serif;
+  transition: all 0.5s;
 }
 body{
   background-image: url(./img/bg-test.png);
@@ -87,10 +88,17 @@ header{
   color: #402401;
   font-weight: 800;
   background: transparent;
-  border: 0;
+  border: 0;s
   box-shadow: 0;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   cursor: pointer;
+  
+}
+.alphabet li button.active{
+  background-color: #F2CD5E;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 
