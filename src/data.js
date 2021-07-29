@@ -31,6 +31,15 @@ export const sortData = (data, sortBy, sortOrder) => {
               }
           });
         }
-    return newData;
   }
+
+  //Busqueda por nombre
+  if (sortBy === "searchName") {
+    data.forEach((item, i) => {
+      if (item.name.includes(sortOrder)) {
+        newData.push(data[i]);
+      }
+    });
+  }
+  return newData;
 };

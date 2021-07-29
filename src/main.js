@@ -247,23 +247,11 @@ const groupQT = () => {
 
     //Busqueda de pokemon por nombre
     const pokeSearch = () => {
-      //Se limpia la pantalla
       galleryClean();
       //Se obtiene el nombre con el que se realizara la busqueda
       let pokeName = document.getElementById('search').value;
-      //Se llama la data
-      let pokeData = check(data.pokemon).pokeDataInfo;
-      //Se crea el array que mostrara result de la busqueda
-      let result = [];
-      /*ciclo que permite recorrer y encontrar el pokemon de acuerdo al
-        criterio de busqueda*/
-      pokeData.forEach((item, i) => {
-        if (item.name.includes(pokeName)) {
-          result.push(pokeData[i]);
-        }
-      });
       //Se muestra result por pantalla
-      pokeTemplate(result);
+      pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'searchName', pokeName));
       pokeGallery();
     }
 
