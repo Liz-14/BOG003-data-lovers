@@ -1,14 +1,15 @@
 
-export const sortData = (data, sortBy, sortOrder) => {
+export const sortData = (data, sortBy /*sortOrder*/) => {
   if (sortBy === "name"){
     data.sort((a,b) => {
-      if(a.name < b.name) return -1;
-      if(a.name > b.name) return 1;
-      return 0;
+      //------operador terniario-------
+      //(condicion) ? resultado_cierto : resultado_falso
+      return (a.name < b.name) ? -1 : 1;
     });
+    return data;
   }
 };
 
-export const anotherExample = () => {
+/*export const anotherExample = () => {
   return 'OMG';
-};
+};*/
