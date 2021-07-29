@@ -19,7 +19,7 @@ const pokeTemplate = (pokeData) => {
 
   /*Funcion que permite obtener la lista de pokemon del data y mostrarlo
     en el index.html*/
-  check(pokeData).pokeData.forEach((item, i) => {
+  check(pokeData).pokeData.forEach((item) => {
     //se crea un div por cada pokemon
     let div = document.createElement('div');
     div.className = 'poke-div';
@@ -49,7 +49,7 @@ const pokeTemplate = (pokeData) => {
 
   //Poner Tipo/elemento con sus respectivos estilos
   check(pokeData).pokeDataType.forEach((item, i) => {
-    item.type.forEach((element, j) => {
+    item.type.forEach((element) => {
       let type = document.createElement('span');
       type.className = 'type';
       //---------------- primera letra mayuscula "capitalize" desde .js -----
@@ -191,7 +191,7 @@ const groupAD = () => {
       if(item.name.startsWith('a') || item.name.startsWith('b') ||
       item.name.startsWith('c') || item.name.startsWith('d')){
         pokeAD.push(iniData[i]);
-      };
+      }
     });
     //se crean las card con la nueva lista
     pokeTemplate(pokeAD);
@@ -208,7 +208,7 @@ const groupAD = () => {
         if(item.name.startsWith('e') || item.name.startsWith('f') ||
         item.name.startsWith('g') || item.name.startsWith('h')){
           pokeEH.push(iniData[i]);
-        };
+        }
       });
       pokeTemplate(pokeEH);
       pokeGallery();
@@ -224,7 +224,7 @@ const groupAD = () => {
       if(item.name.startsWith('i') || item.name.startsWith('j') ||
       item.name.startsWith('k') || item.name.startsWith('l')){
         pokeIL.push(iniData[i]);
-      };
+      }
     });
     pokeTemplate(pokeIL);
     pokeGallery();
@@ -240,7 +240,7 @@ const groupAD = () => {
         if(item.name.startsWith('m') || item.name.startsWith('n') ||
         item.name.startsWith('o') || item.name.startsWith('p')){
           pokeMP.push(iniData[i]);
-        };
+        }
       });
       pokeTemplate(pokeMP);
       pokeGallery();
@@ -256,7 +256,7 @@ const groupQT = () => {
       if(item.name.startsWith('q') || item.name.startsWith('r') ||
       item.name.startsWith('s') || item.name.startsWith('t')){
         pokeQT.push(iniData[i]);
-      };
+      }
     });
     pokeTemplate(pokeQT);
     pokeGallery();
@@ -271,7 +271,7 @@ const groupQT = () => {
         if(item.name.startsWith('u') || item.name.startsWith('v') ||
         item.name.startsWith('w')){
           pokeUW.push(iniData[i]);
-        };
+        }
       });
       pokeTemplate(pokeUW);
       pokeGallery();
@@ -287,9 +287,16 @@ const groupQT = () => {
         if(item.name.startsWith('x') || item.name.startsWith('y') ||
         item.name.startsWith('z')){
           pokeXZ.push(iniData[i]);
-        };
+        }
       });
       pokeTemplate(pokeXZ);
+      pokeGallery();
+    }
+
+      // Grupo A-Z navBar
+    const groupAZ = () => {
+      galleryClean();
+      pokeTemplate(data.pokemon);
       pokeGallery();
     }
 
@@ -320,9 +327,9 @@ btnFollowing.addEventListener("click", following);
 let btnBehind = document.getElementById('behind');
 btnBehind.addEventListener("click", behind);
 
-//Eventos que permite el funcionamiento del navBar
+//Eventos que permite el funcionamiento del navBar para cada grupo de letras
 let navAD = document.getElementById('ad');
-navAD.addEventListener("click", groupAD);
+  navAD.addEventListener("click", groupAD);
 
 let navEH = document.getElementById('eh');
 navEH.addEventListener("click", groupEH);
@@ -340,8 +347,25 @@ let navVW = document.getElementById('uw');
 navVW.addEventListener("click", groupUW);
 
 let navXZ = document.getElementById('xz');
-navXZ.addEventListener("click", groupXZ)
+navXZ.addEventListener("click", groupXZ);
+
+let navAZ = document.getElementById('az');
+navAZ.addEventListener("click", groupAZ);
+
+// funcion que permite ver el boton que haz seleccionado!!
+let btnContainer = document.getElementById("allBtn");
+let btns = btnContainer.getElementsByClassName("btn");
+
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
 
 //Evento que permite el funcionamiento del boton "search"
 let inputSearch = document.getElementById('search');
 inputSearch.addEventListener("keyup", pokeSearch);
+
