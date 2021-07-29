@@ -51,4 +51,10 @@ describe('Para sortData: ', () => {
         it('Deberia retornar los pokemon ordenados alfabeticamente de x-z', () => {
             expect(sortData(initialData, 'name', 'xyz')).toEqual(orderXZ);
           });
+
+          const pokeSearch = [{name: 'jolteon'}, {name: 'umbreon'}]
+
+         it('Deberia retornar los pokemon que contengan el parametro "eon"', () => {
+             expect(sortData(initialData, 'searchName', 'eon')).toEqual(pokeSearch);
+           });
 });
