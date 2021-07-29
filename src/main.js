@@ -1,6 +1,7 @@
-import { sortData } from './data.js';
+import { sortData} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
+//------------ Permite navegar por la galeria -------------------------
 /*verifica si la cantidad de datos en el array es divisible por 6
   de lo contrario agrega datos vacios hasta se se cumpla la condicion*/
 const check = (pokeData) => {
@@ -8,8 +9,9 @@ const check = (pokeData) => {
     pokeData.push('');
   }
   //copia de la data principal, elimina elemntos vacios
-  let pokeDataType = pokeData.filter(el => el != '');
-  return {pokeData, pokeDataType};
+  let pokeDataInfo = pokeData.filter(el => el != '');
+  //Retorna los datos que se usaran paa crear la galeria y la info de cada card
+  return {pokeData, pokeDataInfo};
 }
 
 //Funcion que permite crear las card de cada pokemon
@@ -17,16 +19,13 @@ const pokeTemplate = (pokeData) => {
   //Contenedor que mostrara la list de pokemon
   const list = document.getElementById('pokemonList');
 
-  /*Funcion que permite obtener la lista de pokemon del data y mostrarlo
-    en el index.html*/
+  //Ciclo que permite crear los divs necesarios para cada pokemon
   check(pokeData).pokeData.forEach((item) => {
     //se crea un div por cada pokemon
     let div = document.createElement('div');
     div.className = 'poke-div';
-
     //se agrega cada div al index.html
     list.appendChild(div);
-
     /*verifica si existe un dato vacio dentro del array y pone con opacidad 0
       el div que lo contiene*/
     if(item == ""){
@@ -34,13 +33,15 @@ const pokeTemplate = (pokeData) => {
     }
   });
 
-  //Poner Tipo/elemento con sus respectivos estilos
-  check(pokeData).pokeDataType.forEach((item, i) => {
+  /*Ciclo que permite mostrar toda la informacion de cada pokemon dentro
+    de su div individual*/
+  check(pokeData).pokeDataInfo.forEach((item, i) => {
+    //Se obtiene cada div que contedra la info pokemon
     const pokeDiv = document.getElementsByClassName('poke-div')[i];
     // Div q contendra #pokedex y tipo/elemnto
     let divInfo = document.createElement('div');
     divInfo.className = 'info-div'
-    //Se crean lo elemento que contendran la info pokemon
+    //Se crean los elemento que contendran la info pokemon
     let h2 = document.createElement('h2');
     let h3 = document.createElement('h3');
     let imagen = document.createElement('img');
@@ -54,8 +55,7 @@ const pokeTemplate = (pokeData) => {
     pokeDiv.appendChild(imagen);
     pokeDiv.appendChild(h2);
 
-  //Poner Tipo/elemento con sus respectivos estilos
-  check(pokeData).pokeDataType.forEach((item, i) => {
+    //Ciclo que permite mostrar tipo/elemnto de cada pokemon
     item.type.forEach((element) => {
       let type = document.createElement('span');
       type.className = 'type';
@@ -191,10 +191,9 @@ const groupAD = () => {
   galleryClean();
   //Se crea la lista vacia que contendra la nueva lista de pokemon ordenada A-D
   let pokeAD = [];
-  //se crea la lista verificada para poder ser mostrada en la galeria
-  let iniData = check(data.pokemon).pokeDataType;
-  //Se organiza alfabéticamente la lista
-  sortData(iniData, 'name');
+  /*se crea la lista verificada y organizada alfabéticamente para poder ser
+    mostrada en la galeria*/
+  let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
   //Se ingresan lo pokemon al array "pokeAD" de acuerdo a los criterios
   iniData.forEach((item, i) => {
       if(item.name.startsWith('a') || item.name.startsWith('b') ||
@@ -211,8 +210,7 @@ const groupAD = () => {
   const groupEH = () => {
     galleryClean();
     let pokeEH = [];
-    let iniData = check(data.pokemon).pokeDataType;
-    sortData(iniData, 'name');
+    let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
     iniData.forEach((item, i) => {
         if(item.name.startsWith('e') || item.name.startsWith('f') ||
         item.name.startsWith('g') || item.name.startsWith('h')){
@@ -227,8 +225,7 @@ const groupAD = () => {
  const groupIL = () => {
   galleryClean();
   let pokeIL = [];
-  let iniData = check(data.pokemon).pokeDataType;
-  sortData(iniData, 'name');
+  let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
   iniData.forEach((item, i) => {
       if(item.name.startsWith('i') || item.name.startsWith('j') ||
       item.name.startsWith('k') || item.name.startsWith('l')){
@@ -243,8 +240,7 @@ const groupAD = () => {
   const groupMP = () => {
     galleryClean();
     let pokeMP = [];
-    let iniData = check(data.pokemon).pokeDataType;
-    sortData(iniData, 'name');
+    let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
     iniData.forEach((item, i) => {
         if(item.name.startsWith('m') || item.name.startsWith('n') ||
         item.name.startsWith('o') || item.name.startsWith('p')){
@@ -259,8 +255,7 @@ const groupAD = () => {
 const groupQT = () => {
   galleryClean();
   let pokeQT = [];
-  let iniData = check(data.pokemon).pokeDataType;
-  sortData(iniData, 'name');
+  let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
   iniData.forEach((item, i) => {
       if(item.name.startsWith('q') || item.name.startsWith('r') ||
       item.name.startsWith('s') || item.name.startsWith('t')){
@@ -274,8 +269,7 @@ const groupQT = () => {
   const groupUW = () => {
     galleryClean();
     let pokeUW = [];
-    let iniData = check(data.pokemon).pokeDataType;
-    sortData(iniData, 'name');
+    let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
     iniData.forEach((item, i) => {
         if(item.name.startsWith('u') || item.name.startsWith('v') ||
         item.name.startsWith('w')){
@@ -290,8 +284,7 @@ const groupQT = () => {
   const groupXZ = () => {
     galleryClean();
     let pokeXZ = [];
-    let iniData = check(data.pokemon).pokeDataType;
-    sortData(iniData, 'name');
+    let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
     iniData.forEach((item, i) => {
         if(item.name.startsWith('x') || item.name.startsWith('y') ||
         item.name.startsWith('z')){
@@ -311,19 +304,26 @@ const groupQT = () => {
 
     //Busqueda de pokemon por nombre
     const pokeSearch = () => {
+      //Se limpia la pantalla
       galleryClean();
+      //Se obtiene el nombre con el que se realizara la busqueda
       let pokeName = document.getElementById('search').value;
-      let pokeData = check(data.pokemon).pokeDataType;
-      let resultado = [];
+      //Se llama la data
+      let pokeData = check(data.pokemon).pokeDataInfo;
+      //Se crea el array que mostrara result de la busqueda
+      let result = [];
+      /*ciclo que permite recorrer y encontrar el pokemon de acuerdo al
+        criterio de busqueda*/
       pokeData.forEach((item, i) => {
         if (item.name.includes(pokeName)) {
-          resultado.push(pokeData[i]);
+          result.push(pokeData[i]);
         }
       });
-      pokeTemplate(resultado);
+      //Se muestra result por pantalla
+      pokeTemplate(result);
       pokeGallery();
     }
-    
+
 //Se llama el template de las card y se crea la galeria
 pokeTemplate(data.pokemon);
 pokeGallery();
@@ -377,4 +377,3 @@ for (var i = 0; i < btns.length; i++) {
 //Evento que permite el funcionamiento del "search" en tiempo real
 let inputSearch = document.getElementById('search');
 inputSearch.addEventListener("keyup", pokeSearch);
-
