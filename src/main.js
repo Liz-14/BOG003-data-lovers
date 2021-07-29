@@ -1,6 +1,7 @@
 import { sortData} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
+
 //------------ Permite navegar por la galeria -------------------------
 /*verifica si la cantidad de datos en el array es divisible por 6
   de lo contrario agrega datos vacios hasta se se cumpla la condicion*/
@@ -189,110 +190,52 @@ const behind = () => {
 const groupAD = () => {
   //Se hace el llamado para limpiar la galeria
   galleryClean();
-  //Se crea la lista vacia que contendra la nueva lista de pokemon ordenada A-D
-  let pokeAD = [];
-  /*se crea la lista verificada y organizada alfabéticamente para poder ser
-    mostrada en la galeria*/
-  let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
-  //Se ingresan lo pokemon al array "pokeAD" de acuerdo a los criterios
-  iniData.forEach((item, i) => {
-      if(item.name.startsWith('a') || item.name.startsWith('b') ||
-      item.name.startsWith('c') || item.name.startsWith('d')){
-        pokeAD.push(iniData[i]);
-      }
-    });
-    //se crean las card con la nueva lista
-    pokeTemplate(pokeAD);
-    //se muestran las card por pantalla
-    pokeGallery();
+  /*Se hace el llamado del template que toma por parametro la lista ordenada
+  que retorna el "sortData"*/
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'abcd'));
+  //se muestran las card por pantalla
+  pokeGallery();
   }
   // grupo E-H Navbar
   const groupEH = () => {
     galleryClean();
-    let pokeEH = [];
-    let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
-    iniData.forEach((item, i) => {
-        if(item.name.startsWith('e') || item.name.startsWith('f') ||
-        item.name.startsWith('g') || item.name.startsWith('h')){
-          pokeEH.push(iniData[i]);
-        }
-      });
-      pokeTemplate(pokeEH);
-      pokeGallery();
+    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'efgh'));
+    pokeGallery();
     }
 
     //grupo I-L navBar
  const groupIL = () => {
   galleryClean();
-  let pokeIL = [];
-  let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
-  iniData.forEach((item, i) => {
-      if(item.name.startsWith('i') || item.name.startsWith('j') ||
-      item.name.startsWith('k') || item.name.startsWith('l')){
-        pokeIL.push(iniData[i]);
-      }
-    });
-    pokeTemplate(pokeIL);
-    pokeGallery();
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'ijkl'));
+  pokeGallery();
   }
 
   //Grupo M-P navBar
   const groupMP = () => {
     galleryClean();
-    let pokeMP = [];
-    let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
-    iniData.forEach((item, i) => {
-        if(item.name.startsWith('m') || item.name.startsWith('n') ||
-        item.name.startsWith('o') || item.name.startsWith('p')){
-          pokeMP.push(iniData[i]);
-        }
-      });
-      pokeTemplate(pokeMP);
-      pokeGallery();
+    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'mnop'));
+    pokeGallery();
     }
 
 // Grupo Q-T navBar
 const groupQT = () => {
   galleryClean();
-  let pokeQT = [];
-  let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
-  iniData.forEach((item, i) => {
-      if(item.name.startsWith('q') || item.name.startsWith('r') ||
-      item.name.startsWith('s') || item.name.startsWith('t')){
-        pokeQT.push(iniData[i]);
-      }
-    });
-    pokeTemplate(pokeQT);
-    pokeGallery();
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'qrst'));
+  pokeGallery();
   }
+
 //Grupo U-W navBar
   const groupUW = () => {
     galleryClean();
-    let pokeUW = [];
-    let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
-    iniData.forEach((item, i) => {
-        if(item.name.startsWith('u') || item.name.startsWith('v') ||
-        item.name.startsWith('w')){
-          pokeUW.push(iniData[i]);
-        }
-      });
-      pokeTemplate(pokeUW);
-      pokeGallery();
+    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'uvw'));
+    pokeGallery();
     }
 
     // Grupo X-Z navBar
   const groupXZ = () => {
     galleryClean();
-    let pokeXZ = [];
-    let iniData = sortData(check(data.pokemon).pokeDataInfo, 'name');
-    iniData.forEach((item, i) => {
-        if(item.name.startsWith('x') || item.name.startsWith('y') ||
-        item.name.startsWith('z')){
-          pokeXZ.push(iniData[i]);
-        }
-      });
-      pokeTemplate(pokeXZ);
-      pokeGallery();
+    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'xyz'));
+    pokeGallery();
     }
 
       // Grupo A-Z navBar
@@ -372,7 +315,6 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
-
 
 //Evento que permite el funcionamiento del "search" en tiempo real
 let inputSearch = document.getElementById('search');
