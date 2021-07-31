@@ -92,7 +92,7 @@ header{
   box-shadow: 0;
   font-size: 1.5rem;
   cursor: pointer;
-  
+
 }
 .alphabet li button.active{
   background-color: #F2CD5E;
@@ -301,4 +301,12 @@ footer{
   background-color: #492202;
   text-align: center;
   padding: .5%;
+}
+
+.modal-div{
+  background-color: #cddc39;
+  position: absolute;
+  top: 100vh;
+  padding: 5%;
+  display: none;
 }
