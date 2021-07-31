@@ -4,7 +4,7 @@ export const sortData = (data, sortBy, sortOrder) => {
   if (sortBy === "name"){
     //ordena de la A a la Z
     data.sort((a,b) => {
-      //------operador terniario-------
+      //------operador ternario-------
       //(condicion) ? resultado_cierto : resultado_falso
       return (a.name < b.name) ? -1 : 1;
       });
