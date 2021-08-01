@@ -21,7 +21,7 @@ const pokeTemplate = (pokeData) => {
   const list = document.getElementById('pokemonList');
 
   //Ciclo que permite crear los divs necesarios para cada pokemon
-  check(pokeData).pokeData.forEach((item, i) => {
+  check(pokeData).pokeData.forEach((item) => {
 
     //se crea un div por cada pokemon
     let div = document.createElement('div');
@@ -237,7 +237,7 @@ pokeGallery();
 //Grupo M-P navBar
 const groupMP = () => {
   galleryClean();
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'mnop'));
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'mno'));
   typeStyle();
   pokeGallery();
   }
@@ -245,7 +245,7 @@ const groupMP = () => {
 // Grupo Q-T navBar
 const groupQT = () => {
   galleryClean();
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'qrst'));
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'pqr'));
   typeStyle();
   pokeGallery();
   }
@@ -253,7 +253,7 @@ const groupQT = () => {
 //Grupo U-W navBar
 const groupUW = () => {
   galleryClean();
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'uvw'));
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'stuv'));
   typeStyle();
   pokeGallery();
   }
@@ -261,7 +261,7 @@ const groupUW = () => {
   // Grupo X-Z navBar
 const groupXZ = () => {
   galleryClean();
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'xyz'));
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'wxyz'));
   typeStyle();
   pokeGallery();
   }
@@ -297,7 +297,7 @@ const modal = (name) => {
 
   //
   let pokeData = check(data.pokemon).pokeDataInfo;
-  pokeData.forEach((item, i) => {
+  pokeData.forEach((item) => {
     if (name == item.name) {
       modalName.textContent = item.name;
 
