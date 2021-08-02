@@ -43,3 +43,13 @@ export const sortData = (data, sortBy, sortOrder) => {
   }
   return newData;
 };
+
+export const filterData = (data, condition) => {
+  let newData = [];
+  data.forEach((item, i) => {
+    if (condition == item.name) {
+      newData.push(data[i]);
+    }
+  });
+  return newData;
+}
