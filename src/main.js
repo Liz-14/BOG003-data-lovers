@@ -344,7 +344,6 @@ const modal = (name) => {
   statsDiv.className = 'statsDiv';
   twoDiv.appendChild(statsDiv);
 
-
   const batack = document.createElement('span');
   batack.textContent = "Atack " + pokeCard.stats['base-attack'];
   statsDiv.appendChild(batack);
@@ -368,9 +367,20 @@ const modal = (name) => {
   resistDiv.className = 'resistDiv';
   twoDiv.appendChild(resistDiv);
 
+  const nameresist = document.createElement('h3');
+  nameresist.className = 'namestats';
+  nameresist.textContent = 'Resistencia'
+  resistDiv.appendChild(nameresist);
+
   let weaknesDiv = document.createElement('div');
   weaknesDiv.className = 'weaknetDiv';
   twoDiv.appendChild(weaknesDiv);
+
+  
+  const nameweakness = document.createElement('h3');
+  nameweakness.className = 'namestats';
+  nameweakness.textContent = 'Debilidad'
+  weaknesDiv.appendChild(nameweakness);
 
   pokeCard.resistant.forEach((item, i) => {
     let resistance = document.createElement('span');
