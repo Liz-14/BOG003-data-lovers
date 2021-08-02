@@ -1,4 +1,17 @@
 
+//------------ Permite navegar por la galeria -------------------------
+/*verifica si la cantidad de datos en el array es divisible por 6
+  de lo contrario agrega datos vacios hasta se se cumpla la condicion*/
+export const check = (pokeData) => {
+  while(pokeData.length % 6 != 0){
+    pokeData.push('');
+  }
+  //copia de la data principal, elimina elemntos vacios
+  let pokeDataInfo = pokeData.filter(el => el != '');
+  //Retorna los datos que se usaran paa crear la galeria y la info de cada card
+  return {pokeData, pokeDataInfo};
+}
+
 export const sortData = (data, sortBy, sortOrder) => {
   let newData = [];
   if (sortBy === "name"){
@@ -46,9 +59,9 @@ export const sortData = (data, sortBy, sortOrder) => {
 
 export const filterData = (data, condition) => {
   let newData = [];
-  data.forEach((item, i) => {
+  data.forEach((item) => {
     if (condition == item.name) {
-      newData.push(data[i]);
+      newData.push(item);
     }
   });
   return newData;

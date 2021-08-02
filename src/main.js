@@ -1,18 +1,7 @@
-import {sortData, filterData} from './data.js';
+import {check, sortData, filterData} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
-//------------ Permite navegar por la galeria -------------------------
-/*verifica si la cantidad de datos en el array es divisible por 6
-  de lo contrario agrega datos vacios hasta se se cumpla la condicion*/
-const check = (pokeData) => {
-  while(pokeData.length % 6 != 0){
-    pokeData.push('');
-  }
-  //copia de la data principal, elimina elemntos vacios
-  let pokeDataInfo = pokeData.filter(el => el != '');
-  //Retorna los datos que se usaran paa crear la galeria y la info de cada card
-  return {pokeData, pokeDataInfo};
-}
+//console.log(check(data.pokemon).pokeData);
 
 //Funcion que permite crear las card de cada pokemon
 const pokeTemplate = (pokeData) => {
@@ -314,7 +303,6 @@ const modal = (name) => {
 
  // Se crea la data q suministra el "filterData"
    const modalData = filterData(check(data.pokemon).pokeDataInfo, name);
-
    // imagen de la bigcard
      let imagen = document.createElement('img');
      imagen.src = modalData[0].img;
@@ -379,14 +367,14 @@ const modal = (name) => {
     nameweakness.textContent = 'Debilidad'
     weaknesDiv.appendChild(nameweakness);
 
-    modalData[0].resistant.forEach((item, i) => {
+    modalData[0].resistant.forEach((item) => {
       let resistance = document.createElement('span');
        resistance.className = 'type'
        resistance.textContent = item[0].toUpperCase() + item.substring(1);
        resistDiv.appendChild(resistance);
     });
 
-    modalData[0].weaknesses.forEach((item, i) => {
+    modalData[0].weaknesses.forEach((item) => {
       let weaknesses = document.createElement('span');
        weaknesses.className = 'type'
        weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
