@@ -285,36 +285,38 @@ const pokeSearch = () => {
   pokeGallery();
 }
 
+//Creacion ventana modal para cada pokemon
 const modal = (name) => {
+  //----------- Se crea dinamicamente toda la ventana modal -------------------
+     //creo el div que contendra la informacion de cada pokemon
+      const main = document.getElementById('main');
 
-  // pokecards caracteristicas para cada pokemon.
-    const pokeCard = data.pokemon[0];
+      const content = document.createElement('div');
+      content.id = 'content';
+      main.appendChild(content);
 
-       //creo el div que contendra la informacion de cada pokemon
-        const main = document.getElementById('main');
+      const bigCard = document.createElement('div');
+      bigCard.id = 'bigCard';
+      bigCard.className = 'bigCard'
+      content.appendChild(bigCard);
 
-        const content = document.createElement('div');
-        content.id = 'content';
-        main.appendChild(content);
+      const btnCloseModal = document.createElement('button');
+      btnCloseModal.type = 'button';
+      btnCloseModal.id = 'close-modal-container';
+      btnCloseModal.textContent = 'x';
+      bigCard.appendChild(btnCloseModal);
 
-        const bigCard = document.createElement('div');
-        bigCard.id = 'bigCard';
-        bigCard.className = 'bigCard'
-        content.appendChild(bigCard);
+      const pokemonCard = document.getElementById('bigCard');
 
-        const btnCloseModal = document.createElement('button');
-        btnCloseModal.type = 'button';
-        btnCloseModal.id = 'close-modal-container';
-        btnCloseModal.textContent = 'x';
-        bigCard.appendChild(btnCloseModal);
+       const twoDiv = document.createElement('div');
+       twoDiv.className = 'twoDiv';
+       pokemonCard.appendChild(twoDiv);
 
-        const pokemonCard = document.getElementById('bigCard');
+ // pokecards caracteristicas para cada pokemon.
+   const modalData = check(data.pokemon).pokeDataInfo;
 
-         const twoDiv = document.createElement('div');
-         twoDiv.className = 'twoDiv';
-         pokemonCard.appendChild(twoDiv);
-
-
+   modalData.forEach((pokeCard) => {
+     if (name == pokeCard.name) {
 
        // imagen de la bigcard
          let imagen = document.createElement('img');
@@ -337,101 +339,53 @@ const modal = (name) => {
          let h2 = document.createElement('h2');
          h2.textContent = pokeCard.name;
          twoDiv.appendChild(h2);
+        //Poke stats
+        const statsDiv = document.createElement('div');
+        statsDiv.className = 'statsDiv';
+        twoDiv.appendChild(statsDiv);
 
-   //Poke stats
+        const batack = document.createElement('span');
+        batack.textContent = "Atack " + pokeCard.stats['base-attack'];
+        statsDiv.appendChild(batack);
 
-  const statsDiv = document.createElement('div');
-  statsDiv.className = 'statsDiv';
-  twoDiv.appendChild(statsDiv);
+        const baseDefense = document.createElement('span');
+        baseDefense.textContent ="Defense " + pokeCard.stats['base-defense'];
+        statsDiv.appendChild(baseDefense);
 
-  const batack = document.createElement('span');
-  batack.textContent = "Atack " + pokeCard.stats['base-attack'];
-  statsDiv.appendChild(batack);
+        const stamina = document.createElement('span');
+        stamina.textContent ="Stamina " + pokeCard.stats['stamina'];
 
-  const baseDefense = document.createElement('span');
-  baseDefense.textContent ="Defense " + pokeCard.stats['base-defense'];
-  statsDiv.appendChild(baseDefense);
+        const cp = document.createElement('span');
+        cp.textContent = "CP " + pokeCard.stats['max-cp'];
+        statsDiv.appendChild(cp);
 
-  const stamina = document.createElement('span');
-  stamina.textContent ="Stamina " + pokeCard.stats['stamina'];
+        const hp = document.createElement('span');
+        hp.textContent = "HP " + pokeCard.stats['max-hp'];
+        statsDiv.appendChild(hp);
 
-  const cp = document.createElement('span');
-  cp.textContent = "CP " + pokeCard.stats['max-cp'];
-  statsDiv.appendChild(cp);
+        let resistDiv = document.createElement('div');
+        resistDiv.className = 'resistDiv';
+        twoDiv.appendChild(resistDiv);
 
-  const hp = document.createElement('span');
-  hp.textContent = "HP " + pokeCard.stats['max-hp'];
-  statsDiv.appendChild(hp);
+        let weaknesDiv = document.createElement('div');
+        weaknesDiv.className = 'weaknetDiv';
+        twoDiv.appendChild(weaknesDiv);
 
-  let resistDiv = document.createElement('div');
-  resistDiv.className = 'resistDiv';
-  twoDiv.appendChild(resistDiv);
+        pokeCard.resistant.forEach((item, i) => {
+          let resistance = document.createElement('span');
+           resistance.className = 'type'
+           resistance.textContent = item[0].toUpperCase() + item.substring(1);
+           resistDiv.appendChild(resistance);
+        });
 
-  const nameresist = document.createElement('h3');
-  nameresist.className = 'namestats';
-  nameresist.textContent = 'Resistencia'
-  resistDiv.appendChild(nameresist);
-
-  let weaknesDiv = document.createElement('div');
-  weaknesDiv.className = 'weaknetDiv';
-  twoDiv.appendChild(weaknesDiv);
-
-  
-  const nameweakness = document.createElement('h3');
-  nameweakness.className = 'namestats';
-  nameweakness.textContent = 'Debilidad'
-  weaknesDiv.appendChild(nameweakness);
-
-  pokeCard.resistant.forEach((item, i) => {
-    let resistance = document.createElement('span');
-     resistance.className = 'type'
-     resistance.textContent = item[0].toUpperCase() + item.substring(1);
-     resistDiv.appendChild(resistance);
+        pokeCard.weaknesses.forEach((item, i) => {
+          let weaknesses = document.createElement('span');
+           weaknesses.className = 'type'
+           weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
+           weaknesDiv.appendChild(weaknesses);
+        });
+     }
   });
-
-  pokeCard.weaknesses.forEach((item, i) => {
-    let weaknesses = document.createElement('span');
-     weaknesses.className = 'type'
-     weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
-     weaknesDiv.appendChild(weaknesses);
-  });
-
-
-
-//---------------------- mio
-/*
-  let main = document.getElementById('main');
-  let modalDiv = document.createElement('div');
-  modalDiv.className = 'modal-div';
-  let modalName = document.createElement('span');
-  let p = document.createElement('p')
-  //
-  main.appendChild(modalDiv);
-  modalDiv.appendChild(modalName);
-
-  //
-  let pokeData = check(data.pokemon).pokeDataInfo;
-  pokeData.forEach((pokeCard) => {
-    if (name == pokeCard.name) {
-      modalName.textContent = pokeCard.name;
-
-      pokeCard.type.forEach((element) => {
-        let type = document.createElement('span');
-        type.className = 'type';
-        //---------------- primera letra mayuscula "capitalize" desde .js -----
-        type.textContent = element[0].toUpperCase() + element.substring(1);
-        modalDiv.appendChild(type);
-      });
-
-      pokeCard.resistant.forEach((element) => {
-        let type = document.createElement('span');
-        type.className = 'type';
-        //---------------- primera letra mayuscula "capitalize" desde .js -----
-        type.textContent = element[0].toUpperCase() + element.substring(1);
-        p.appendChild(type);
-      });
-    }
-  });*/
 
   content.style.display = 'flex';
   typeStyle();
@@ -440,6 +394,12 @@ const modal = (name) => {
   btnClose.addEventListener('click',  () => closeModal ());
 }
 
+//Funcion que permite el funcionamiento del boton cerrar de la ventana modal
+const closeModal = () => {
+  let main = document.getElementById('main');
+  let content = document.getElementById('content')
+  main.removeChild(content);
+}
 
 //Evento que permite el funcionamiento del boton "adelante"
 let btnFollowing = document.getElementById('following');
@@ -489,10 +449,3 @@ for (var i = 0; i < btns.length; i++) {
 //Evento que permite el funcionamiento del "search" en tiempo real
 let inputSearch = document.getElementById('search');
 inputSearch.addEventListener("keyup", pokeSearch);
-
-
-const closeModal = () => {
-  let main = document.getElementById('main');
-  let content = document.getElementById('content')
-  main.removeChild(content);
-}
