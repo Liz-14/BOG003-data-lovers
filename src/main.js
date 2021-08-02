@@ -339,7 +339,6 @@ const modal = (name) => {
          let h2 = document.createElement('h2');
          h2.textContent = pokeCard.name;
          twoDiv.appendChild(h2);
-
         //Poke stats
         const statsDiv = document.createElement('div');
         statsDiv.className = 'statsDiv';
