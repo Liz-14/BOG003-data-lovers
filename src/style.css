@@ -50,6 +50,10 @@ header{
   width: 100%;
 }
 
+#logo img{
+  width: 65%;
+}
+
 .alphabet{
   grid-column: 2/3;
   grid-row: 1;
@@ -71,7 +75,20 @@ header{
 
 .alphabet ul{
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  list-style: none;
+}
+
+li{
+  display: flex;
+  font-size: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.nav1, .nav2{
+  display: flex;
   justify-content: center;
   align-items: center;
   padding:0;
@@ -103,6 +120,13 @@ header{
 
 
 #filter{
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+=======
   grid-column: 3/3;
   grid-row: 1;
   margin: auto;
@@ -159,17 +183,110 @@ header{
   font-size: 16px;
   color: #3E4959;
   font-weight: 600;
+>>>>>>> main
+}
+
+#btnSearch {
+  background-color: #F2CD5E;
+  right: 8.5vw;
+  border-style: none;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-bottom: 5%;
+}
+
+#search{
+  background-color: #F2CD5E;
+  border-style: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  position: relative;
+  padding-left: 20px;
+  font-size: 18px;
+  margin-bottom: 5%;
+  margin-top: 0;
+  transition: all 0.25s ease;
+}
+
+#search:hover{
+  background: #ED9264;
+}
+
+.searchName{
+  display: flex;
+}
+
+#select{
+  margin-top: 2%;
+  border: none;
+  background: #F2CD5E;
+  padding: 2% 10%;
+  color: #3E4959;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+#select:hover{
+  background: #ED9264;
+}
+
+main{
+  background-size: cover;
+  padding: 5%;
+}
+
+.container{
+  background-color: rgba(242, 205, 94, 0.64);
+  padding: 5% 3%;
+  border-radius: 20px;
+}
+
+#explanation{
+  background-color: rgba(242, 205, 94, 0.8);
+  padding: 5%;
+  text-align: center;
+  color: #19212D;
+  border-top: #402401 6px double;
+  border-bottom: #402401 6px double;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#explanation h1{
+  font-size: 36px;
+  font-weight: bold;
+}
+
+#explanation p{
+  font-size: 24px;
+
+}
+
+#pokeGallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #pokemonList{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+<<<<<<< HEAD
+  flex-grow: 3;
+=======
   flex-grow: 4;
+>>>>>>> main
 }
 
 .poke-div{
   background-color: #F27B35;
+<<<<<<< HEAD
+  margin: 5%;
+  flex-grow: 1;
+=======
   margin-bottom: 3%;
   padding-bottom: 3%;
   display: none;
@@ -302,51 +419,88 @@ footer{
   text-align: center;
   padding: .5%;
 }
-<<<<<<< HEAD
-#content{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  background-color: #ffffff;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  }
-  .twoDiv{
-    background-color: #f27b35;
-    border-radius: 25px;
-  }
-.bigCard{
-  background-color: #ffb000;
-  border-radius: 5px;
-  padding: 30px;
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 20px;
-  max-width: 500px;
-}
-.twoDiv span{
-  display: inline-block;
-  width: 60px;
-}
-.twoDiv span.resist{
-  
-}
-
-.resist{
-  padding: 10px;
-}
-=======
 
 .modal-div{
   background-color: #cddc39;
   position: absolute;
   top: 100vh;
   padding: 5%;
+>>>>>>> main
   display: none;
+  text-align: center;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  width: 15vw;
+  max-height: 35vh;
+  padding-bottom: 1%;
 }
->>>>>>> 3b1e116 (Se comienza a crear y realizar funcionalidad de la ventana modal)
+
+.poke-div h2{
+  text-transform: uppercase;
+  padding-bottom: 4%;
+}
+
+.info-div{
+  background-color: rgba(115, 34, 34, 0.7);
+  position: absolute;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.poke-div:hover > .info-div{
+  opacity: 1;
+  visibility: visible;
+}
+
+.p-num{
+  font-size: 27px;
+  font-weight: bold;
+  padding-bottom: 1%;
+}
+
+.p-type{
+  text-transform: capitalize;
+  font-size: 22px;
+  padding-bottom: 1%;
+}
+
+.poke-div img{
+  width: 180px;
+  height: 180px;
+  margin-bottom: 5%;
+  padding-top: 10%;
+}
+
+#behind, #following{
+  width: 80px;
+  height: 80px;
+  background-color: #19212D;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+#behind{
+  padding: 5% 7% 4% 5%;
+}
+
+#following{
+  padding: 5% 3% 4% 10%;
+}
+
+#behind:hover, #following:hover{
+  background-color: #304154;
+}
+
+footer{
+  background-color: #402401;
+  text-align: center;
+  padding: .5%;
+}
