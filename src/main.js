@@ -1,4 +1,5 @@
 import { sortData} from './data.js';
+import pokemon from './data/pokemon/pokemon.js';
 import data from './data/pokemon/pokemon.js';
 
 
@@ -122,7 +123,205 @@ const pokeTemplate = (pokeData) => {
       }
     });
   });
+
 }
+
+ // pokecards caracteristicas para cada pokemon.
+   const pokeCard = data.pokemon[0];
+  //  console.log(pokeCard);  
+
+        check(data.pokemon).pokeDataInfo.forEach((item, i) => {
+      //creo el div que contendra la informacion de cada pokemon
+        const contentDiv = document.getElementById('content');
+        const pokemonCard = document.createElement('div');
+        pokemonCard.className =('bigCard');
+        contentDiv.appendChild(pokemonCard);
+
+        const twoDiv = document.createElement('div');
+        twoDiv.className = 'twoDiv';
+        pokemonCard.appendChild(twoDiv);
+       
+
+        
+      // imagen de la bigcard
+        let imagen = document.createElement('img');
+        imagen.src = item.img;
+        twoDiv.appendChild(imagen);
+       // numero de pokemon card
+        let h3 = document.createElement('h3');
+        h3.textContent = '# ' + item.num;
+        twoDiv.appendChild(h3);
+
+
+
+       //nombre de la bigcard
+        let h2 = document.createElement('h2');
+        h2.textContent = item.name;
+        twoDiv.appendChild(h2);
+
+  //Poke stats 
+
+const statsDiv = document.createElement('div');
+statsDiv.className = 'statsDiv';
+twoDiv.appendChild(statsDiv);
+
+
+const batack = document.createElement('span');
+batack.textContent = "Atack " + item.stats['base-attack'];
+statsDiv.appendChild(batack);
+ 
+const baseDefense = document.createElement('span');
+baseDefense.textContent ="Defense " + item.stats['base-defense'];
+statsDiv.appendChild(baseDefense);
+ 
+const stamina = document.createElement('span');
+stamina.textContent ="Stamina " + item.stats['stamina'];
+ 
+const cp = document.createElement('span');
+cp.textContent = "CP " + item.stats['max-cp'];
+statsDiv.appendChild(cp);
+ 
+const hp = document.createElement('span');
+hp.textContent = "HP " + item.stats['max-hp'];
+statsDiv.appendChild(hp);
+
+
+// resistencia y debilidad 
+item.resistant.forEach((element) => { 
+
+let resistDiv = document.createElement('div');
+resistDiv.className = 'resistDiv';
+twoDiv.appendChild(resistDiv);
+
+ let resistance = document.createElement('span');
+  resistance.className = 'resist'
+  resistance.textContent = element[0].toUpperCase() + element.substring(1);
+   document.getElementsByClassName('twoDiv')[i].appendChild(resistance);
+   if(element == "grass"){
+    resistance.style.backgroundColor = '#73B050';
+  }
+  if(element == "poison"){
+    resistance.style.backgroundColor = '#663366';
+  }
+  if(element == "fire"){
+    resistance.style.backgroundColor = '#FF6900';
+  }
+  if(element == "flying"){
+    resistance.style.background = 'linear-gradient(to bottom, #4079BF 40%, #424556 70%)';
+  }
+  if(element == "water"){
+    resistance.style.backgroundColor = '#4079BF';
+  }
+  if(element == "bug"){
+    resistance.style.backgroundColor = '#567F3B';
+  }
+  if(element == "normal"){
+    resistance.style.backgroundColor = '#474851';
+  }
+  if(element == "electric"){
+    resistance.style.backgroundColor = '#FFB600';
+  }
+  if(element == "ground"){
+    resistance.style.background = 'linear-gradient(to bottom, #725003 40%, #FFB600 70%)';
+  }
+  if(element == "fighting"){
+    resistance.style.backgroundColor = '#732222';
+  }
+  if(element == "psychic"){
+    resistance.style.backgroundColor = '#C4377E';
+  }
+  if(element == "rock"){
+    resistance.style.backgroundColor = '#725003';
+  }
+  if(element == "ice"){
+    resistance.style.backgroundColor = '#95D6F9';
+    resistance.style.color = 'black';
+  }
+  if(element == "ghost"){
+    resistance.style.backgroundColor = '#5A4A77';
+  }
+  if(element == "dragon"){
+    resistance.style.background = 'linear-gradient(to bottom, #474851 40%, #732222 70%)';
+  }
+  if(element == "fairy"){
+    resistance.style.backgroundColor = '#C15B93';
+  }
+  if(element == "dark"){
+    resistance.style.backgroundColor = '#1D1E21';
+  }
+  if(element == "steel"){
+    resistance.style.background = 'linear-gradient(to bottom, #474851, white)';
+    resistance.style.color = 'black';
+  }
+      
+
+
+});
+ item.weaknesses.forEach((element) => {
+  
+  let debility = document.createElement('span');
+  debility.className = 'debility'
+  debility.textContent = element[0].toUpperCase() + element.substring(1);
+   document.getElementsByClassName('twoDiv')[i].appendChild(debility);
+   if(element == "grass"){
+    debility.style.backgroundColor = '#73B050';
+  }
+  if(element == "poison"){
+    debility.style.backgroundColor = '#663366';
+  }
+  if(element == "fire"){
+    debility.style.backgroundColor = '#FF6900';
+  }
+  if(element == "flying"){
+    debility.style.background = 'linear-gradient(to bottom, #4079BF 40%, #424556 70%)';
+  }
+  if(element == "water"){
+    debility.style.backgroundColor = '#4079BF';
+  }
+  if(element == "bug"){
+    debility.style.backgroundColor = '#567F3B';
+  }
+  if(element == "normal"){
+    debility.style.backgroundColor = '#474851';
+  }
+  if(element == "electric"){
+    debility.style.backgroundColor = '#FFB600';
+  }
+  if(element == "ground"){
+    debility.style.background = 'linear-gradient(to bottom, #725003 40%, #FFB600 70%)';
+  }
+  if(element == "fighting"){
+    debility.style.backgroundColor = '#732222';
+  }
+  if(element == "psychic"){
+    debility.style.backgroundColor = '#C4377E';
+  }
+  if(element == "rock"){
+    debility.style.backgroundColor = '#725003';
+  }
+  if(element == "ice"){
+    debility.style.backgroundColor = '#95D6F9';
+    debility.style.color = 'black';
+  }
+  if(element == "ghost"){
+    debility.style.backgroundColor = '#5A4A77';
+  }
+  if(element == "dragon"){
+    debility.style.background = 'linear-gradient(to bottom, #474851 40%, #732222 70%)';
+  }
+  if(element == "fairy"){
+    debility.style.backgroundColor = '#C15B93';
+  }
+  if(element == "dark"){
+    debility.style.backgroundColor = '#1D1E21';
+  }
+  if(element == "steel"){
+    debility.style.background = 'linear-gradient(to bottom, #474851, white)';
+    debility.style.color = 'black';
+  }
+
+});
+ });
 
 //se inicia contador
 let num = 6
@@ -184,6 +383,9 @@ const behind = () => {
       document.getElementsByClassName('poke-div')[i].style.display = 'none';
     }
   }
+
+ 
+
 }
 
 //Funciones que muestra los grupos de pokemon organizados alfabéticamente
