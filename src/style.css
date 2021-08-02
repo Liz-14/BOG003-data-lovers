@@ -1,6 +1,7 @@
 *{
   margin: 0;
   font-family: 'Lato', sans-serif;
+<<<<<<< HEAD
 }
 
 body{
@@ -18,6 +19,55 @@ header{
   padding: 2% 1.5%;
   position: absolute;
   flex-grow: 1;
+=======
+  transition: all 0.5s;
+}
+body{
+  background-image: url(./img/bg-test.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main{
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: rgb(242 205 94 / 64%);
+  margin-top: 14rem;
+  padding: 1% 1% 2% 1%;
+  border-radius: 30px;
+  margin-bottom: 5rem;
+}
+
+header{
+  display: grid;
+  background-color: black;
+  grid-template-columns: 20% 60% 20%;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(60px, auto);
+  background: rgb(255,140,0);
+  background: radial-gradient(circle, rgba(255,140,0,1) 18%, rgba(113,62,0,1) 67%);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.logo{
+  grid-column: 1/2;
+  grid-row: 1;
+  position: relative;
+}
+
+#logo{
+  margin-top: 6%;
+  position:absolute;
+}
+
+#logo img{
+  padding-left: 10%;
+  padding-top: 3%;
+  width: 100%;
+>>>>>>> main
 }
 
 #logo img{
@@ -25,12 +75,34 @@ header{
 }
 
 .alphabet{
+<<<<<<< HEAD
   margin-left: 21%;
   flex-grow: 3;
   font-weight: 900;
 }
 
 ul{
+=======
+  grid-column: 2/3;
+  grid-row: 1;
+}
+
+.alphabet span{
+  display: block;
+  width: 90%;
+}
+
+#line1{
+  border-bottom: 4px solid #402401;
+}
+
+#line2{
+  margin-top: .3%;
+  border-bottom: 2px solid #402401;
+}
+
+.alphabet ul{
+>>>>>>> main
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -48,6 +120,7 @@ li{
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   flex-grow: 1;
 }
 
@@ -63,14 +136,101 @@ li{
 a{
   text-decoration: none;
   color: #402401;
+=======
+  padding:0;
 }
 
+.alphabet li{
+  font-size: 32px;
+  margin: 1% 5%;
+  list-style: none;
+  text-align: center;
+}
+
+.alphabet li button{
+  color: #402401;
+  font-weight: 800;
+  background: transparent;
+  border: 0;s
+  box-shadow: 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+}
+.alphabet li button.active{
+  background-color: #F2CD5E;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+>>>>>>> main
+}
+
+
 #filter{
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+=======
+  grid-column: 3/3;
+  grid-row: 1;
+  margin: auto;
+  padding-right: 5%;
+}
+
+.searchName input{
+  box-shadow: none;
+  background-color: #F2CD5E;
+  border: 0;
+  height: 35px;
+  border-radius: 30px;
+  width: 110%;
+  font-size: 1.3rem;
+  padding-left: 20px;
+  margin-bottom: 5%;
+  transition: all 0.25s ease;
+}
+
+#search:hover{
+  background: #ED9264;
+}
+
+.searchName{
+  width:80%;
+  position: relative;
+}
+.searchName button{
+  background-color: transparent;
+  box-shadow: none;
+  border: 0;
+  position: absolute;
+  right: -45px;
+  top: 0;
+}
+
+.searchName button img{
+  width:35px;
+  height:35px;
+}
+
+#filter select{
+  background-color: #F2CD5E;
+  border: 0;
+  box-shadow: none;
+  height: 37px;
+  width: 96%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50px;
+  margin-top: 5%;
+  padding-left: 5%;
+  margin-right: 3%;
+  font-size: 16px;
+  color: #3E4959;
+  font-weight: 600;
+>>>>>>> main
 }
 
 #btnSearch {
@@ -161,13 +321,158 @@ main{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+<<<<<<< HEAD
   flex-grow: 3;
+=======
+  flex-grow: 4;
+>>>>>>> main
 }
 
 .poke-div{
   background-color: #F27B35;
+<<<<<<< HEAD
   margin: 5%;
   flex-grow: 1;
+=======
+  margin-bottom: 3%;
+  padding-bottom: 3%;
+  display: none;
+  width: 30%;
+  text-align: center;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+#welcome-text{
+  background-color: rgb(242 205 94 / 80%);
+    padding: 2rem;
+    text-align: center;
+    max-width: 70%;
+    margin: 0 auto;
+    border-bottom: #402401 10px double;
+    border-top: #402401 10px double;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    color: #19212D;
+}
+
+#welcome-text h1{
+  font-size: 34px;
+  font-weight: 700;
+}
+
+#welcome-text p{
+  font-size: 24px;
+}
+
+.info-div h3{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 3%
+}
+
+.type{
+  font-size: 18px;
+  font-weight: bold;
+  padding: 1% 4% 1% 4%;
+  border-radius: 15px;
+  margin: 2%;
+}
+
+.info-div{
+  background-color: rgba(115, 34, 34, 0.7);
+  position: absolute;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  color: white;
+}
+
+.poke-div:hover > .info-div{
+  opacity: 1;
+  visibility: visible;
+}
+
+.poke-div h2{
+  color: #ffffff;
+    text-transform: uppercase;
+    padding: 4%;
+    font: 34px;
+}
+
+.poke-div img{
+  display: block;
+  margin: 0 auto;
+  height: 70%;
+  margin-top: 7%;
+}
+
+#pokeGallery{
+  display: flex;
+}
+
+#pokeGallery button{
+  box-shadow: none;
+  margin: auto;
+  margin-left: 3%;
+  margin-right: 3%;
+  max-width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  background-color: #19212D;
+}
+
+#pokeGallery button#behind{
+  padding-right: .6%;
+  flex-grow: 1;
+  transition: all 0.25s ease;
+}
+
+#pokeGallery button#following{
+  padding-left: .6%;
+  flex-grow: 1;
+  transition: all 0.25s ease;
+}
+footer nav ul{
+  padding: 0;
+  text-align: center;
+  padding:10px;
+}
+footer nav ul li{
+  display: inline-block;
+}
+
+#behind:hover, #following:hover{
+  background-color: #304154;
+  border: #19212D 1px solid;
+  transition: all 0.25s ease;
+}
+
+#behind:active, #following:active{
+  border: #19212D 3px solid;
+}
+
+footer{
+  background-color: #492202;
+  text-align: center;
+  padding: .5%;
+}
+
+.modal-div{
+  background-color: #cddc39;
+  position: absolute;
+  top: 100vh;
+  padding: 5%;
+>>>>>>> main
   display: none;
   text-align: center;
   border-radius: 15px;
