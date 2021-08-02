@@ -1,4 +1,4 @@
-import {sortData} from './data.js';
+import {sortData, filterData} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 //------------ Permite navegar por la galeria -------------------------
@@ -312,81 +312,86 @@ const modal = (name) => {
        twoDiv.className = 'twoDiv';
        pokemonCard.appendChild(twoDiv);
 
- // pokecards caracteristicas para cada pokemon.
-   const modalData = check(data.pokemon).pokeDataInfo;
+ // Se crea la data q suministra el "filterData"
+   const modalData = filterData(check(data.pokemon).pokeDataInfo, name);
 
-   modalData.forEach((pokeCard) => {
-     if (name == pokeCard.name) {
+   // imagen de la bigcard
+     let imagen = document.createElement('img');
+     imagen.src = modalData[0].img;
+     twoDiv.appendChild(imagen);
 
-       // imagen de la bigcard
-         let imagen = document.createElement('img');
-         imagen.src = pokeCard.img;
-         twoDiv.appendChild(imagen);
+    // numero de pokemon card
+     let h3 = document.createElement('h3');
+     h3.textContent = '# ' + modalData[0].num;
+     twoDiv.appendChild(h3);
 
-        // numero de pokemon card
-         let h3 = document.createElement('h3');
-         h3.textContent = '# ' + pokeCard.num;
-         twoDiv.appendChild(h3);
+     modalData[0].type.forEach((element) => {
+       let type = document.createElement('span');
+       type.className = 'type';
+       type.textContent = element[0].toUpperCase() + element.substring(1);
+       twoDiv.appendChild(type);
+     });
 
-         pokeCard.type.forEach((element) => {
-           let type = document.createElement('span');
-           type.className = 'type';
-           type.textContent = element[0].toUpperCase() + element.substring(1);
-           twoDiv.appendChild(type);
-         });
+    //nombre de la bigcard
+     let h2 = document.createElement('h2');
+     h2.textContent = modalData[0].name;
+     twoDiv.appendChild(h2);
 
-        //nombre de la bigcard
-         let h2 = document.createElement('h2');
-         h2.textContent = pokeCard.name;
-         twoDiv.appendChild(h2);
+    //Poke stats
+    const statsDiv = document.createElement('div');
+    statsDiv.className = 'statsDiv';
+    twoDiv.appendChild(statsDiv);
 
-        //Poke stats
-        const statsDiv = document.createElement('div');
-        statsDiv.className = 'statsDiv';
-        twoDiv.appendChild(statsDiv);
+    const batack = document.createElement('span');
+    batack.textContent = "Atack " + modalData[0].stats['base-attack'];
+    statsDiv.appendChild(batack);
 
-        const batack = document.createElement('span');
-        batack.textContent = "Atack " + pokeCard.stats['base-attack'];
-        statsDiv.appendChild(batack);
+    const baseDefense = document.createElement('span');
+    baseDefense.textContent ="Defense " + modalData[0].stats['base-defense'];
+    statsDiv.appendChild(baseDefense);
 
-        const baseDefense = document.createElement('span');
-        baseDefense.textContent ="Defense " + pokeCard.stats['base-defense'];
-        statsDiv.appendChild(baseDefense);
+    const stamina = document.createElement('span');
+    stamina.textContent ="Stamina " + modalData[0].stats['stamina'];
 
-        const stamina = document.createElement('span');
-        stamina.textContent ="Stamina " + pokeCard.stats['stamina'];
+    const cp = document.createElement('span');
+    cp.textContent = "CP " + modalData[0].stats['max-cp'];
+    statsDiv.appendChild(cp);
 
-        const cp = document.createElement('span');
-        cp.textContent = "CP " + pokeCard.stats['max-cp'];
-        statsDiv.appendChild(cp);
+    const hp = document.createElement('span');
+    hp.textContent = "HP " + modalData[0].stats['max-hp'];
+    statsDiv.appendChild(hp);
 
-        const hp = document.createElement('span');
-        hp.textContent = "HP " + pokeCard.stats['max-hp'];
-        statsDiv.appendChild(hp);
+    let resistDiv = document.createElement('div');
+    resistDiv.className = 'resistDiv';
+    twoDiv.appendChild(resistDiv);
 
-        let resistDiv = document.createElement('div');
-        resistDiv.className = 'resistDiv';
-        twoDiv.appendChild(resistDiv);
+    const nameresist = document.createElement('h3');
+    nameresist.className = 'namestats';
+    nameresist.textContent = 'Resistencia'
+    resistDiv.appendChild(nameresist);
 
-        let weaknesDiv = document.createElement('div');
-        weaknesDiv.className = 'weaknetDiv';
-        twoDiv.appendChild(weaknesDiv);
+    let weaknesDiv = document.createElement('div');
+    weaknesDiv.className = 'weaknetDiv';
+    twoDiv.appendChild(weaknesDiv);
 
-        pokeCard.resistant.forEach((item, i) => {
-          let resistance = document.createElement('span');
-           resistance.className = 'type'
-           resistance.textContent = item[0].toUpperCase() + item.substring(1);
-           resistDiv.appendChild(resistance);
-        });
+    const nameweakness = document.createElement('h3');
+    nameweakness.className = 'namestats';
+    nameweakness.textContent = 'Debilidad'
+    weaknesDiv.appendChild(nameweakness);
 
-        pokeCard.weaknesses.forEach((item, i) => {
-          let weaknesses = document.createElement('span');
-           weaknesses.className = 'type'
-           weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
-           weaknesDiv.appendChild(weaknesses);
-        });
-     }
-  });
+    modalData[0].resistant.forEach((item, i) => {
+      let resistance = document.createElement('span');
+       resistance.className = 'type'
+       resistance.textContent = item[0].toUpperCase() + item.substring(1);
+       resistDiv.appendChild(resistance);
+    });
+
+    modalData[0].weaknesses.forEach((item, i) => {
+      let weaknesses = document.createElement('span');
+       weaknesses.className = 'type'
+       weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
+       weaknesDiv.appendChild(weaknesses);
+    });
 
   content.style.display = 'flex';
   typeStyle();
