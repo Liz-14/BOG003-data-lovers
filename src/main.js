@@ -21,7 +21,7 @@ const pokeTemplate = (pokeData) => {
   const list = document.getElementById('pokemonList');
 
   //Ciclo que permite crear los divs necesarios para cada pokemon
-  check(pokeData).pokeData.forEach((item) => {
+  check(pokeData).pokeData.forEach((pokeCard) => {
 
     //se crea un div por cada pokemon
     let div = document.createElement('div');
@@ -30,14 +30,14 @@ const pokeTemplate = (pokeData) => {
     list.appendChild(div);
     /*verifica si existe un dato vacio dentro del array y pone con opacidad 0
       el div que lo contiene*/
-    if(item == ""){
+    if(pokeCard == ""){
       div.style.opacity = '0';
     }
   });
 
   /*Ciclo que permite mostrar toda la informacion de cada pokemon dentro
     de su div individual*/
-  check(pokeData).pokeDataInfo.forEach((item, i) => {
+  check(pokeData).pokeDataInfo.forEach((pokeCard, i) => {
     //Se obtiene cada div que contedra la info pokemon
     const pokeDiv = document.getElementsByClassName('poke-div')[i];
     // Div q contendra #pokedex y tipo/elemnto
@@ -48,9 +48,9 @@ const pokeTemplate = (pokeData) => {
     let h3 = document.createElement('h3');
     let imagen = document.createElement('img');
     //se obtiene el nombre, numero e imagen de la data
-    h2.textContent = item.name;
-    h3.textContent = '# ' + item.num;
-    imagen.src = item.img;
+    h2.textContent = pokeCard.name;
+    h3.textContent = '# ' + pokeCard.num;
+    imagen.src = pokeCard.img;
     //se agrega cada div al index.html
     pokeDiv.appendChild(divInfo);
     divInfo.appendChild(h3);
@@ -58,7 +58,7 @@ const pokeTemplate = (pokeData) => {
     pokeDiv.appendChild(h2);
 
     //Ciclo que permite mostrar tipo/elemnto de cada pokemon
-    item.type.forEach((element) => {
+    pokeCard.type.forEach((element) => {
       let type = document.createElement('span');
       type.className = 'type';
       //---------------- primera letra mayuscula "capitalize" desde .js -----
@@ -68,7 +68,7 @@ const pokeTemplate = (pokeData) => {
 
     //evento que permite aparecer la ventana modal
     let startModal = document.getElementsByClassName('poke-div')[i];
-    startModal.addEventListener("click", () => modal(item.name));
+    startModal.addEventListener("click", () => modal(pokeCard.name));
   });
 }
 
@@ -286,6 +286,110 @@ const pokeSearch = () => {
 }
 
 const modal = (name) => {
+
+  // pokecards caracteristicas para cada pokemon.
+    const pokeCard = data.pokemon[0];
+
+       //creo el div que contendra la informacion de cada pokemon
+        const main = document.getElementById('main');
+
+        const content = document.createElement('div');
+        content.id = 'content';
+        main.appendChild(content);
+
+        const bigCard = document.createElement('div');
+        bigCard.id = 'bigCard';
+        bigCard.className = 'bigCard'
+        content.appendChild(bigCard);
+
+        const btnCloseModal = document.createElement('button');
+        btnCloseModal.type = 'button';
+        btnCloseModal.id = 'close-modal-container';
+        btnCloseModal.textContent = 'x';
+        bigCard.appendChild(btnCloseModal);
+
+        const pokemonCard = document.getElementById('bigCard');
+
+         const twoDiv = document.createElement('div');
+         twoDiv.className = 'twoDiv';
+         pokemonCard.appendChild(twoDiv);
+
+
+
+       // imagen de la bigcard
+         let imagen = document.createElement('img');
+         imagen.src = pokeCard.img;
+         twoDiv.appendChild(imagen);
+
+        // numero de pokemon card
+         let h3 = document.createElement('h3');
+         h3.textContent = '# ' + pokeCard.num;
+         twoDiv.appendChild(h3);
+
+         pokeCard.type.forEach((element) => {
+           let type = document.createElement('span');
+           type.className = 'type';
+           type.textContent = element[0].toUpperCase() + element.substring(1);
+           twoDiv.appendChild(type);
+         });
+
+        //nombre de la bigcard
+         let h2 = document.createElement('h2');
+         h2.textContent = pokeCard.name;
+         twoDiv.appendChild(h2);
+
+   //Poke stats
+
+  const statsDiv = document.createElement('div');
+  statsDiv.className = 'statsDiv';
+  twoDiv.appendChild(statsDiv);
+
+
+  const batack = document.createElement('span');
+  batack.textContent = "Atack " + pokeCard.stats['base-attack'];
+  statsDiv.appendChild(batack);
+
+  const baseDefense = document.createElement('span');
+  baseDefense.textContent ="Defense " + pokeCard.stats['base-defense'];
+  statsDiv.appendChild(baseDefense);
+
+  const stamina = document.createElement('span');
+  stamina.textContent ="Stamina " + pokeCard.stats['stamina'];
+
+  const cp = document.createElement('span');
+  cp.textContent = "CP " + pokeCard.stats['max-cp'];
+  statsDiv.appendChild(cp);
+
+  const hp = document.createElement('span');
+  hp.textContent = "HP " + pokeCard.stats['max-hp'];
+  statsDiv.appendChild(hp);
+
+  let resistDiv = document.createElement('div');
+  resistDiv.className = 'resistDiv';
+  twoDiv.appendChild(resistDiv);
+
+  let weaknesDiv = document.createElement('div');
+  weaknesDiv.className = 'weaknetDiv';
+  twoDiv.appendChild(weaknesDiv);
+
+  pokeCard.resistant.forEach((item, i) => {
+    let resistance = document.createElement('span');
+     resistance.className = 'type'
+     resistance.textContent = item[0].toUpperCase() + item.substring(1);
+     resistDiv.appendChild(resistance);
+  });
+
+  pokeCard.weaknesses.forEach((item, i) => {
+    let weaknesses = document.createElement('span');
+     weaknesses.className = 'type'
+     weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
+     weaknesDiv.appendChild(weaknesses);
+  });
+
+
+
+//---------------------- mio
+/*
   let main = document.getElementById('main');
   let modalDiv = document.createElement('div');
   modalDiv.className = 'modal-div';
@@ -297,11 +401,11 @@ const modal = (name) => {
 
   //
   let pokeData = check(data.pokemon).pokeDataInfo;
-  pokeData.forEach((item) => {
-    if (name == item.name) {
-      modalName.textContent = item.name;
+  pokeData.forEach((pokeCard) => {
+    if (name == pokeCard.name) {
+      modalName.textContent = pokeCard.name;
 
-      item.type.forEach((element) => {
+      pokeCard.type.forEach((element) => {
         let type = document.createElement('span');
         type.className = 'type';
         //---------------- primera letra mayuscula "capitalize" desde .js -----
@@ -309,7 +413,7 @@ const modal = (name) => {
         modalDiv.appendChild(type);
       });
 
-      item.resistant.forEach((element) => {
+      pokeCard.resistant.forEach((element) => {
         let type = document.createElement('span');
         type.className = 'type';
         //---------------- primera letra mayuscula "capitalize" desde .js -----
@@ -317,10 +421,13 @@ const modal = (name) => {
         p.appendChild(type);
       });
     }
-  });
-  modalDiv.appendChild(p);
-  modalDiv.style.display = 'block';
+  });*/
+
+  content.style.display = 'flex';
   typeStyle();
+
+  let btnClose = document.getElementById('close-modal-container');
+  btnClose.addEventListener('click',  () => closeModal ());
 }
 
 
@@ -372,3 +479,10 @@ for (var i = 0; i < btns.length; i++) {
 //Evento que permite el funcionamiento del "search" en tiempo real
 let inputSearch = document.getElementById('search');
 inputSearch.addEventListener("keyup", pokeSearch);
+
+
+const closeModal = () => {
+  let main = document.getElementById('main');
+  let content = document.getElementById('content')
+  main.removeChild(content);
+}
