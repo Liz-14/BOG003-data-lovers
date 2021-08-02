@@ -92,7 +92,7 @@ header{
   box-shadow: 0;
   font-size: 1.5rem;
   cursor: pointer;
-  
+
 }
 .alphabet li button.active{
   background-color: #F2CD5E;
@@ -302,6 +302,7 @@ footer{
   text-align: center;
   padding: .5%;
 }
+<<<<<<< HEAD
 #content{
   position: fixed;
   top: 0;
@@ -339,3 +340,13 @@ footer{
 .resist{
   padding: 10px;
 }
+=======
+
+.modal-div{
+  background-color: #cddc39;
+  position: absolute;
+  top: 100vh;
+  padding: 5%;
+  display: none;
+}
+>>>>>>> 3b1e116 (Se comienza a crear y realizar funcionalidad de la ventana modal)
