@@ -4,7 +4,7 @@ export const sortData = (data, sortBy, sortOrder) => {
   if (sortBy === "name"){
     //ordena de la A a la Z
     data.sort((a,b) => {
-      //------operador terniario-------
+      //------operador ternario-------
       //(condicion) ? resultado_cierto : resultado_falso
       return (a.name < b.name) ? -1 : 1;
       });
@@ -43,3 +43,13 @@ export const sortData = (data, sortBy, sortOrder) => {
   }
   return newData;
 };
+
+export const filterData = (data, condition) => {
+  let newData = [];
+  data.forEach((item, i) => {
+    if (condition == item.name) {
+      newData.push(data[i]);
+    }
+  });
+  return newData;
+}

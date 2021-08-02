@@ -1,6 +1,5 @@
-import { sortData} from './data.js';
+import {sortData, filterData} from './data.js';
 import data from './data/pokemon/pokemon.js';
-
 
 //------------ Permite navegar por la galeria -------------------------
 /*verifica si la cantidad de datos en el array es divisible por 6
@@ -17,11 +16,13 @@ const check = (pokeData) => {
 
 //Funcion que permite crear las card de cada pokemon
 const pokeTemplate = (pokeData) => {
+
   //Contenedor que mostrara la list de pokemon
   const list = document.getElementById('pokemonList');
 
   //Ciclo que permite crear los divs necesarios para cada pokemon
-  check(pokeData).pokeData.forEach((item) => {
+  check(pokeData).pokeData.forEach((pokeCard) => {
+
     //se crea un div por cada pokemon
     let div = document.createElement('div');
     div.className = 'poke-div';
@@ -29,14 +30,14 @@ const pokeTemplate = (pokeData) => {
     list.appendChild(div);
     /*verifica si existe un dato vacio dentro del array y pone con opacidad 0
       el div que lo contiene*/
-    if(item == ""){
+    if(pokeCard == ""){
       div.style.opacity = '0';
     }
   });
 
   /*Ciclo que permite mostrar toda la informacion de cada pokemon dentro
     de su div individual*/
-  check(pokeData).pokeDataInfo.forEach((item, i) => {
+  check(pokeData).pokeDataInfo.forEach((pokeCard, i) => {
     //Se obtiene cada div que contedra la info pokemon
     const pokeDiv = document.getElementsByClassName('poke-div')[i];
     // Div q contendra #pokedex y tipo/elemnto
@@ -47,9 +48,9 @@ const pokeTemplate = (pokeData) => {
     let h3 = document.createElement('h3');
     let imagen = document.createElement('img');
     //se obtiene el nombre, numero e imagen de la data
-    h2.textContent = item.name;
-    h3.textContent = '# ' + item.num;
-    imagen.src = item.img;
+    h2.textContent = pokeCard.name;
+    h3.textContent = '# ' + pokeCard.num;
+    imagen.src = pokeCard.img;
     //se agrega cada div al index.html
     pokeDiv.appendChild(divInfo);
     divInfo.appendChild(h3);
@@ -57,71 +58,84 @@ const pokeTemplate = (pokeData) => {
     pokeDiv.appendChild(h2);
 
     //Ciclo que permite mostrar tipo/elemnto de cada pokemon
-    item.type.forEach((element) => {
+    pokeCard.type.forEach((element) => {
       let type = document.createElement('span');
       type.className = 'type';
       //---------------- primera letra mayuscula "capitalize" desde .js -----
       type.textContent = element[0].toUpperCase() + element.substring(1);
       document.getElementsByClassName('info-div')[i].appendChild(type);
-      //Se agregan estilos de acuerdo al tipo/elemento
-      if(element == "grass"){
-        type.style.backgroundColor = '#73B050';
-      }
-      if(element == "poison"){
-        type.style.backgroundColor = '#663366';
-      }
-      if(element == "fire"){
-        type.style.backgroundColor = '#FF6900';
-      }
-      if(element == "flying"){
-        type.style.background = 'linear-gradient(to bottom, #4079BF 40%, #424556 70%)';
-      }
-      if(element == "water"){
-        type.style.backgroundColor = '#4079BF';
-      }
-      if(element == "bug"){
-        type.style.backgroundColor = '#567F3B';
-      }
-      if(element == "normal"){
-        type.style.backgroundColor = '#474851';
-      }
-      if(element == "electric"){
-        type.style.backgroundColor = '#FFB600';
-      }
-      if(element == "ground"){
-        type.style.background = 'linear-gradient(to bottom, #725003 40%, #FFB600 70%)';
-      }
-      if(element == "fighting"){
-        type.style.backgroundColor = '#732222';
-      }
-      if(element == "psychic"){
-        type.style.backgroundColor = '#C4377E';
-      }
-      if(element == "rock"){
-        type.style.backgroundColor = '#725003';
-      }
-      if(element == "ice"){
-        type.style.backgroundColor = '#95D6F9';
-        type.style.color = 'black';
-      }
-      if(element == "ghost"){
-        type.style.backgroundColor = '#5A4A77';
-      }
-      if(element == "dragon"){
-        type.style.background = 'linear-gradient(to bottom, #474851 40%, #732222 70%)';
-      }
-      if(element == "fairy"){
-        type.style.backgroundColor = '#C15B93';
-      }
-      if(element == "dark"){
-        type.style.backgroundColor = '#1D1E21';
-      }
-      if(element == "steel"){
-        type.style.background = 'linear-gradient(to bottom, #474851, white)';
-        type.style.color = 'black';
-      }
     });
+
+    //evento que permite aparecer la ventana modal
+    let startModal = document.getElementsByClassName('poke-div')[i];
+    startModal.addEventListener("click", () => modal(pokeCard.name));
   });
+}
+
+//Funcion que permite darle estilos al tipo/elemento pokemon
+const typeStyle = () => {
+  for (var i = 0; i < document.getElementsByClassName('type').length; i++) {
+    let type = document.getElementsByClassName('type')[i];
+    let nameType = document.getElementsByClassName('type')[i].textContent;
+
+    //Se agregan estilos de acuerdo al tipo/elemento
+    if(nameType == "Grass"){
+      type.style.backgroundColor = '#73B050';
+    }
+    if(nameType == "Poison"){
+      type.style.backgroundColor = '#663366';
+    }
+    if(nameType == "Fire"){
+      type.style.backgroundColor = '#FF6900';
+    }
+    if(nameType == "Flying"){
+      type.style.background = 'linear-gradient(to bottom, #4079BF 40%, #424556 70%)';
+    }
+    if(nameType == "Water"){
+      type.style.backgroundColor = '#4079BF';
+    }
+    if(nameType == "Bug"){
+      type.style.backgroundColor = '#567F3B';
+    }
+    if(nameType == "Normal"){
+      type.style.backgroundColor = '#474851';
+    }
+    if(nameType == "Electric"){
+      type.style.backgroundColor = '#FFB600';
+    }
+    if(nameType == "Ground"){
+      type.style.background = 'linear-gradient(to bottom, #725003 40%, #FFB600 70%)';
+    }
+    if(nameType == "Fighting"){
+      type.style.backgroundColor = '#732222';
+    }
+    if(nameType == "Psychic"){
+      type.style.backgroundColor = '#C4377E';
+    }
+    if(nameType == "Rock"){
+      type.style.backgroundColor = '#725003';
+    }
+    if(nameType == "Ice"){
+      type.style.backgroundColor = '#95D6F9';
+      type.style.color = 'black';
+    }
+    if(nameType == "Ghost"){
+      type.style.backgroundColor = '#5A4A77';
+    }
+    if(nameType == "Dragon"){
+      type.style.background = 'linear-gradient(to bottom, #474851 40%, #732222 70%)';
+    }
+    if(nameType == "Fairy"){
+      type.style.backgroundColor = '#C15B93';
+    }
+    if(nameType == "Dark"){
+      type.style.backgroundColor = '#1D1E21';
+    }
+    if(nameType == "Steel"){
+      type.style.background = 'linear-gradient(to bottom, #474851, white)';
+      type.style.color = 'black';
+    }
+  }
 }
 
 //se inicia contador
@@ -186,6 +200,13 @@ const behind = () => {
   }
 }
 
+//Se llama el template de las card
+pokeTemplate(data.pokemon);
+//llamado de la funcion de estilos
+typeStyle();
+//llamado para la creacion d ela galeria
+pokeGallery();
+
 //Funciones que muestra los grupos de pokemon organizados alfabéticamente
 const groupAD = () => {
   //Se hace el llamado para limpiar la galeria
@@ -193,71 +214,198 @@ const groupAD = () => {
   /*Se hace el llamado del template que toma por parametro la lista ordenada
   que retorna el "sortData"*/
   pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'abcd'));
+  typeStyle();
   //se muestran las card por pantalla
   pokeGallery();
   }
-  // grupo E-H Navbar
-  const groupEH = () => {
-    galleryClean();
-    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'efgh'));
-    pokeGallery();
-    }
-
-    //grupo I-L navBar
- const groupIL = () => {
+// grupo E-H Navbar
+const groupEH = () => {
   galleryClean();
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'ijkl'));
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'efgh'));
+  typeStyle();
   pokeGallery();
   }
 
-  //Grupo M-P navBar
-  const groupMP = () => {
-    galleryClean();
-    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'mnop'));
-    pokeGallery();
-    }
+  //grupo I-L navBar
+const groupIL = () => {
+galleryClean();
+pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'ijkl'));
+typeStyle();
+pokeGallery();
+}
+
+//Grupo M-P navBar
+const groupMP = () => {
+  galleryClean();
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'mno'));
+  typeStyle();
+  pokeGallery();
+  }
 
 // Grupo Q-T navBar
 const groupQT = () => {
   galleryClean();
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'qrst'));
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'pqr'));
+  typeStyle();
   pokeGallery();
   }
 
 //Grupo U-W navBar
-  const groupUW = () => {
-    galleryClean();
-    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'uvw'));
-    pokeGallery();
-    }
+const groupUW = () => {
+  galleryClean();
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'stuv'));
+  typeStyle();
+  pokeGallery();
+  }
 
-    // Grupo X-Z navBar
-  const groupXZ = () => {
-    galleryClean();
-    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'xyz'));
-    pokeGallery();
-    }
+  // Grupo X-Z navBar
+const groupXZ = () => {
+  galleryClean();
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'wxyz'));
+  typeStyle();
+  pokeGallery();
+  }
 
-      // Grupo A-Z navBar
-    const groupAZ = () => {
-      galleryClean();
-      pokeTemplate(data.pokemon);
-      pokeGallery();
-    }
+    // Grupo A-Z navBar
+const groupAZ = () => {
+  galleryClean();
+  pokeTemplate(data.pokemon);
+  typeStyle();
+  pokeGallery();
+}
 
-    //Busqueda de pokemon por nombre
-    const pokeSearch = () => {
-      galleryClean();
-      //Se obtiene el nombre con el que se realizara la busqueda
-      let pokeName = document.getElementById('search').value;
-      //Se muestra result por pantalla
-      pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'searchName', pokeName));
-      pokeGallery();
-    }
+//Busqueda de pokemon por nombre
+const pokeSearch = () => {
+  galleryClean();
+  //Se obtiene el nombre con el que se realizara la busqueda
+  let pokeName = document.getElementById('search').value;
+  //Se muestra result por pantalla
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'searchName', pokeName));
+  typeStyle();
+  pokeGallery();
+}
 
-//Se llama el template de las card y se crea la galeria
-pokeTemplate(data.pokemon);
-pokeGallery();
+//Creacion ventana modal para cada pokemon
+const modal = (name) => {
+  //----------- Se crea dinamicamente toda la ventana modal -------------------
+     //creo el div que contendra la informacion de cada pokemon
+      const main = document.getElementById('main');
+
+      const content = document.createElement('div');
+      content.id = 'content';
+      main.appendChild(content);
+
+      const bigCard = document.createElement('div');
+      bigCard.id = 'bigCard';
+      bigCard.className = 'bigCard'
+      content.appendChild(bigCard);
+
+      const btnCloseModal = document.createElement('button');
+      btnCloseModal.type = 'button';
+      btnCloseModal.id = 'close-modal-container';
+      btnCloseModal.textContent = 'x';
+      bigCard.appendChild(btnCloseModal);
+
+      const pokemonCard = document.getElementById('bigCard');
+
+       const twoDiv = document.createElement('div');
+       twoDiv.className = 'twoDiv';
+       pokemonCard.appendChild(twoDiv);
+
+ // Se crea la data q suministra el "filterData"
+   const modalData = filterData(check(data.pokemon).pokeDataInfo, name);
+
+   // imagen de la bigcard
+     let imagen = document.createElement('img');
+     imagen.src = modalData[0].img;
+     twoDiv.appendChild(imagen);
+
+    // numero de pokemon card
+     let h3 = document.createElement('h3');
+     h3.textContent = '# ' + modalData[0].num;
+     twoDiv.appendChild(h3);
+
+     modalData[0].type.forEach((element) => {
+       let type = document.createElement('span');
+       type.className = 'type';
+       type.textContent = element[0].toUpperCase() + element.substring(1);
+       twoDiv.appendChild(type);
+     });
+
+    //nombre de la bigcard
+     let h2 = document.createElement('h2');
+     h2.textContent = modalData[0].name;
+     twoDiv.appendChild(h2);
+
+    //Poke stats
+    const statsDiv = document.createElement('div');
+    statsDiv.className = 'statsDiv';
+    twoDiv.appendChild(statsDiv);
+
+    const batack = document.createElement('span');
+    batack.textContent = "Atack " + modalData[0].stats['base-attack'];
+    statsDiv.appendChild(batack);
+
+    const baseDefense = document.createElement('span');
+    baseDefense.textContent ="Defense " + modalData[0].stats['base-defense'];
+    statsDiv.appendChild(baseDefense);
+
+    const stamina = document.createElement('span');
+    stamina.textContent ="Stamina " + modalData[0].stats['stamina'];
+
+    const cp = document.createElement('span');
+    cp.textContent = "CP " + modalData[0].stats['max-cp'];
+    statsDiv.appendChild(cp);
+
+    const hp = document.createElement('span');
+    hp.textContent = "HP " + modalData[0].stats['max-hp'];
+    statsDiv.appendChild(hp);
+
+    let resistDiv = document.createElement('div');
+    resistDiv.className = 'resistDiv';
+    twoDiv.appendChild(resistDiv);
+
+    const nameresist = document.createElement('h3');
+    nameresist.className = 'namestats';
+    nameresist.textContent = 'Resistencia'
+    resistDiv.appendChild(nameresist);
+
+    let weaknesDiv = document.createElement('div');
+    weaknesDiv.className = 'weaknetDiv';
+    twoDiv.appendChild(weaknesDiv);
+
+    const nameweakness = document.createElement('h3');
+    nameweakness.className = 'namestats';
+    nameweakness.textContent = 'Debilidad'
+    weaknesDiv.appendChild(nameweakness);
+
+    modalData[0].resistant.forEach((item, i) => {
+      let resistance = document.createElement('span');
+       resistance.className = 'type'
+       resistance.textContent = item[0].toUpperCase() + item.substring(1);
+       resistDiv.appendChild(resistance);
+    });
+
+    modalData[0].weaknesses.forEach((item, i) => {
+      let weaknesses = document.createElement('span');
+       weaknesses.className = 'type'
+       weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
+       weaknesDiv.appendChild(weaknesses);
+    });
+
+  content.style.display = 'flex';
+  typeStyle();
+
+  let btnClose = document.getElementById('close-modal-container');
+  btnClose.addEventListener('click',  () => closeModal ());
+}
+
+//Funcion que permite el funcionamiento del boton cerrar de la ventana modal
+const closeModal = () => {
+  let main = document.getElementById('main');
+  let content = document.getElementById('content')
+  main.removeChild(content);
+}
 
 //Evento que permite el funcionamiento del boton "adelante"
 let btnFollowing = document.getElementById('following');
