@@ -28,28 +28,28 @@ describe('Para sortData: ', () => {
         expect(sortData(initialData, 'name', 'ijkl')).toEqual(orderIL);
       });
 
-      const orderMP = [{name: 'mew'}, {name: 'natu'}, {name: 'pichu'}]
+      const orderMO = [{name: 'mew'}, {name: 'natu'}]
 
      it('Deberia retornar los pokemon ordenados alfabeticamente de m-p', () => {
-         expect(sortData(initialData, 'name', 'mnop')).toEqual(orderMP);
+         expect(sortData(initialData, 'name', 'mno')).toEqual(orderMO);
        });
 
-       const orderQT = [{name: 'raichu'}, {name: 'seel'}, {name: 'tauros'}]
+       const orderPR = [{name: 'pichu'}, {name: 'raichu'}]
 
       it('Deberia retornar los pokemon ordenados alfabeticamente de q-t', () => {
-          expect(sortData(initialData, 'name', 'qrst')).toEqual(orderQT);
+          expect(sortData(initialData, 'name', 'pqr')).toEqual(orderPR);
         });
 
-        const orderUW = [{name: 'umbreon'}, {name: 'vulpix'}]
+        const orderSV = [{name: 'seel'}, {name: 'tauros'}, {name: 'umbreon'}, {name: 'vulpix'}]
 
        it('Deberia retornar los pokemon ordenados alfabeticamente de u-w', () => {
-           expect(sortData(initialData, 'name', 'uvw')).toEqual(orderUW);
+           expect(sortData(initialData, 'name', 'stuv')).toEqual(orderSV);
          });
 
-         const orderXZ = [{name: 'xatu'}, {name: 'zapdos'}]
+         const orderWZ = [{name: 'xatu'}, {name: 'zapdos'}]
 
         it('Deberia retornar los pokemon ordenados alfabeticamente de x-z', () => {
-            expect(sortData(initialData, 'name', 'xyz')).toEqual(orderXZ);
+            expect(sortData(initialData, 'name', 'wxyz')).toEqual(orderWZ);
           });
 
           const pokeSearch = [{name: 'jolteon'}, {name: 'umbreon'}]
