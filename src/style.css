@@ -302,3 +302,40 @@ footer{
   text-align: center;
   padding: .5%;
 }
+#content{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  }
+  .twoDiv{
+    background-color: #f27b35;
+    border-radius: 25px;
+  }
+.bigCard{
+  background-color: #ffb000;
+  border-radius: 5px;
+  padding: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  max-width: 500px;
+}
+.twoDiv span{
+  display: inline-block;
+  width: 60px;
+}
+.twoDiv span.resist{
+  
+}
+
+.resist{
+  padding: 10px;
+}
