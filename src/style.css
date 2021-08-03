@@ -329,21 +329,27 @@ footer{
   text-align: center;
   font-size: 1.2rem;
   margin-top: 20px;
-  width: 40%;
+  width: 22%;
   position: relative;
 }
 .twoDiv span{
   display: inline-block;
-  width: 60px;
-  margin:5px;
+  width: 63px;
+  padding: 1% 2%;
+}
+
+#stamina{
+  margin-right: 2.5%;
 }
 .twoDiv span.resist{
 
 }
 .twoDiv img {
   position: absolute;
-  top: -10%;
-  left: 40%;
+  top: -18%;
+  left: 30%;
+  height: 18vh;
+  width: 17vh;
 }
 
 .resist{
@@ -396,11 +402,15 @@ footer{
   margin-bottom: .5rem;
 }
 
+.num {
+  font-size: 35px;
+}
+
 /* MEDIA Q */
 
 @media(min-width:1440px){
   .twoDiv img {
-    left: 43%;
+    left: 35%;
 }
 }
 @media(max-width:1360px){
