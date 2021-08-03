@@ -309,7 +309,7 @@ footer{
   width: 100%;
   height: 100%;
   left: 0;
-  background-color: #ffffff;
+  background-color:#ffffffc7;
   z-index: 99;
   display: none;
   align-items: center;
@@ -319,23 +319,37 @@ footer{
   .twoDiv{
     background-color: #f27b35;
     border-radius: 25px;
+    padding-top: 2.5rem;
+    padding-bottom:10px ;
   }
 .bigCard{
   background-color: #ffb000;
-  border-radius: 5px;
+  border-radius: 30px;
   padding: 30px;
   text-align: center;
   font-size: 1.2rem;
   margin-top: 20px;
-  max-width: 500px;
+  width: 22%;
   position: relative;
 }
 .twoDiv span{
   display: inline-block;
-  width: 60px;
+  width: 63px;
+  padding: 1% 2%;
+}
+
+#stamina{
+  margin-right: 2.5%;
 }
 .twoDiv span.resist{
 
+}
+.twoDiv img {
+  position: absolute;
+  top: -18%;
+  left: 30%;
+  height: 18vh;
+  width: 17vh;
 }
 
 .resist{
@@ -344,15 +358,72 @@ footer{
 
 .resistDiv, .weaknetDiv{
   background-color: rgba(115, 34, 34, 0.7);
-  margin: 2%;
+  margin: 10px;
   border-radius: 15px;
+  padding-top: 15px;
 }
 
 #close-modal-container{
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: white;
+  top: -6%;
+  right: -4%;
+  background-color: #f27b35;
   border-radius: 50%;
-  padding: 2% 3%;
+  border: 0;
+  width: 60px;
+  height: 60px;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgb(0 0 0 / 0%);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgb(0 0 0 / 0%);
+  text-transform: uppercase;
+  font-family: fantasy;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+#close-modal-container:hover {
+  background-color: #304154;
+  border: #19212D 1px solid;
+  transition: all 0.25s ease;
+
+  }
+
+.twoDiv h2 {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+.twoDiv h3 {
+  color: #fff;
+  text-transform: capitalize;
+  margin-bottom: .5rem;
+}
+
+.num {
+  font-size: 35px;
+}
+
+/* MEDIA Q */
+
+@media(min-width:1440px){
+  .twoDiv img {
+    left: 35%;
+}
+}
+@media(max-width:1360px){
+  .twoDiv {
+    padding-top: 2rem;
+}
+.twoDiv h2 {
+  font-size: 1.2rem;
+}
+.type {
+  font-size: 13px;
+}
+.twoDiv h3 {
+  font-size: 1rem;
+}
 }

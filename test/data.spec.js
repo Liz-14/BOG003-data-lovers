@@ -1,11 +1,30 @@
-import { sortData } from '../src/data.js';
+import { check, sortData, filterData } from '../src/data.js';
 
 const initialData = [{name: 'xatu'}, {name: 'jolteon'}, {name: 'raichu'}, {name:'lugia'}, {name: 'arbok'},
                     {name: 'mew'}, {name: 'celebi'}, {name: 'ditto'}, {name: 'eevee'}, {name: 'golbat'},
                     {name: 'natu'}, {name: 'pichu'}, {name: 'seel'}, {name: 'tauros'}, {name: 'kakuna'},
-                    {name: 'umbreon'}, {name: 'zapdos'}, {name: 'vulpix'},]
+                    {name: 'umbreon'}, {name: 'zapdos'}, {name: 'vulpix'}, {name: 'sentret'}]
 
-describe('Para sortData: ', () => {
+const dataGallery = [{name: 'xatu'}, {name: 'jolteon'}, {name: 'raichu'}, {name:'lugia'}]
+
+describe ('check: ', () => {
+  it('Deberia ser una funcion', () => {
+    expect(typeof check).toBe('function');
+  });
+
+  const galleryResult = [{name: 'xatu'}, {name: 'jolteon'}, {name: 'raichu'},
+                        {name:'lugia'}, '', ''];
+  it('Deberia retornar la lista pokemon con los correspondientes datos vacios', () => {
+      expect(check(dataGallery).pokeData).toEqual(galleryResult);
+    });
+
+  const galleryResult2 = [{name: 'xatu'}, {name: 'jolteon'}, {name: 'raichu'}, {name:'lugia'}];
+  it('Deberia retornar la lista pokemon sin datos vacios', () => {
+      expect(check(dataGallery).pokeDataInfo).toEqual(galleryResult2);
+    });
+});
+
+describe('sortData: ', () => {
   it('Deberia ser una funcion', () => {
     expect(typeof sortData).toBe('function');
   });
@@ -40,7 +59,8 @@ describe('Para sortData: ', () => {
           expect(sortData(initialData, 'name', 'pqr')).toEqual(orderPR);
         });
 
-        const orderSV = [{name: 'seel'}, {name: 'tauros'}, {name: 'umbreon'}, {name: 'vulpix'}]
+        const orderSV = [{name: 'seel'}, {name: 'sentret'}, {name: 'tauros'},
+                        {name: 'umbreon'}, {name: 'vulpix'}]
 
        it('Deberia retornar los pokemon ordenados alfabeticamente de u-w', () => {
            expect(sortData(initialData, 'name', 'stuv')).toEqual(orderSV);
@@ -57,4 +77,15 @@ describe('Para sortData: ', () => {
          it('Deberia retornar los pokemon que contengan el parametro "eon"', () => {
              expect(sortData(initialData, 'searchName', 'eon')).toEqual(pokeSearch);
            });
+});
+
+
+describe('filterData: ', () => {
+  it('Deberia ser una funcion', () => {
+    expect(typeof filterData).toBe('function');
+  });
+  const result = [{name: 'eevee'}]
+  it('Deberia retornar el pokemon especifico', () => {
+      expect(filterData(initialData, 'eevee')).toEqual(result);
+    });
 });
