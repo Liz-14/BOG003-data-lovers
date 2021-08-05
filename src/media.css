@@ -1,0 +1,66 @@
+/* MEDIA Q */
+
+@media(min-width:1440px){
+    .twoDiv img {
+      left: 43%;
+  }
+  }
+  @media(max-width:1360px){
+    .twoDiv {
+      padding-top: 2rem;
+  }
+  .twoDiv h2 {
+    font-size: 1.2rem;
+  }
+  .type {
+    font-size: 13px;
+  }
+  .twoDiv h3 {
+    font-size: 1rem;
+  }
+  }
+
+/* Responsive laptop */
+  @media(min-width:1280px) and (max-width:1360px){
+      header{
+        grid-template-columns: 20% 55% 23%;
+      }
+    .alphabet li button{
+      font-size: 1.2rem;
+    }
+  
+   main{
+    margin-top: 10rem;
+   }
+   .poke-div h2 {
+     font-size: 20px;
+   }
+    #welcome-text p {
+      font-size: 20px;
+  }
+  
+  }
+/* Responsive Tablet */
+  @media(min-width:768px) and (max-width:1024px){
+    header{
+      grid-template-columns: 20% 50% 28%;
+    }
+    .alphabet li button{
+      font-size:1rem;
+    }
+    #welcome-text p {
+      font-size: 17px;
+  }
+  main {
+    margin-top: 8rem;
+  }
+  .poke-div h2 {
+    font-size: 15px;
+  }
+
+  /* @media(min-width:320px) and (max-width:768px){
+    nav{
+      display:none;
+    }
+  } */
+  

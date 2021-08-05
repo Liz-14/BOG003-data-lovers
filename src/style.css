@@ -7,6 +7,7 @@ body{
   background-image: url(./img/bg-test.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
 }
 
 main{
@@ -88,7 +89,7 @@ header{
   color: #402401;
   font-weight: 800;
   background: transparent;
-  border: 0;s
+  border: 0;
   box-shadow: 0;
   font-size: 1.5rem;
   cursor: pointer;
@@ -240,7 +241,6 @@ header{
   color: #ffffff;
     text-transform: uppercase;
     padding: 4%;
-    font: 34px;
 }
 
 .poke-div img{

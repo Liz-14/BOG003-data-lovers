@@ -1,4 +1,4 @@
-import {check, sortData, filterData} from './data.js';
+import {sortData, filterData, check} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 //Funcion que permite crear las card de cada pokemon
@@ -127,12 +127,15 @@ const typeStyle = () => {
 
 //se inicia contador
 let num = 6
-// se muestran los primeros 6 pokemon de la lista
+let width = window.innerWidth;
+console.log(width);
+
+ // se muestran los primeros 6 pokemon de la lista
 const pokeGallery = () => {
   for(let i = num - 6; i < num; i++){
     document.getElementsByClassName('poke-div')[i].style.display = 'block';
   }
-}
+} 
 
 //Limpia galeria
 const galleryClean = () =>{
@@ -146,6 +149,7 @@ const galleryClean = () =>{
     pokeList.removeChild(document.getElementsByClassName('poke-div')[0]);
   }
 }
+  
 
 /*Funcion que permite mostrar los siguientes 6 pokemon de la lista, y
 oculta los anteriores 6*/
@@ -301,6 +305,7 @@ const modal = (name) => {
 
  // Se crea la data q suministra el "filterData"
    const modalData = filterData(check(data.pokemon).pokeDataInfo, name);
+
    // imagen de la bigcard
      let imagen = document.createElement('img');
      imagen.src = modalData[0].img;
@@ -368,14 +373,14 @@ const modal = (name) => {
     nameweakness.textContent = 'Debilidad'
     weaknesDiv.appendChild(nameweakness);
 
-    modalData[0].resistant.forEach((item) => {
+    modalData[0].resistant.forEach((item, i) => {
       let resistance = document.createElement('span');
        resistance.className = 'type'
        resistance.textContent = item[0].toUpperCase() + item.substring(1);
        resistDiv.appendChild(resistance);
     });
 
-    modalData[0].weaknesses.forEach((item) => {
+    modalData[0].weaknesses.forEach((item, i) => {
       let weaknesses = document.createElement('span');
        weaknesses.className = 'type'
        weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
