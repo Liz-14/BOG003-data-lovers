@@ -86,7 +86,7 @@ header{
 }
 #pokemonList{
   flex-direction: column;
-  max-height: 130vh;
+  max-height: 121vh;
   padding-left: 3.5%;
 }
 
