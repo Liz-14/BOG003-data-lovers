@@ -1,0 +1,106 @@
+main{
+  max-width: none;
+  margin-top: 14rem;
+  width: 98vw;
+  padding-top: 2%;
+  margin-top: 18rem;
+  border-radius: 0px;
+  margin-bottom: 0;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+#logo{
+  padding-left: 2.5rem;
+  position: relative;
+}
+
+#logo img{
+  width: 60%;;
+}
+.logo{
+  background-color: #402401 60%;
+}
+
+.alphabet li{
+  margin: 1% 3%;
+}
+
+.alphabet li button{
+  font-size: 1.2rem;
+}
+
+#filter{
+  padding: 3% 0%;
+}
+
+.searchName input{
+  height: 30px;
+  font-size: 1rem;
+  width: 130%;
+}
+
+#filter select{
+  height: 30px;
+  font-size: 1rem;
+  width: 114%;
+}
+
+.searchName button img{
+  width:29px;
+  height:29px;
+}
+
+.searchName button{
+  right: -65px;
+}
+
+
+#welcome-text h1{
+  font-size: 1.8rem;
+}
+#welcome-text p{
+  font-size: 1rem;
+}
+#pokeGallery{
+  flex-direction: column;
+  justify-content: center;
+}
+#pokemonList{
+  flex-direction: column;
+  max-height: 100vh;
+  padding-left: 3.5%;
+}
+
+.poke-div{
+  width: 45vw;
+}
+
+.poke-div h2{
+  font-size: 1rem;
+}
+
+#pokeGallery button{
+  text-align: center;
+  margin-left: 10rem;
+  width: 12vw;
+  height: 7vh;
+}
+
+#pokeGallery button img{
+  width: 8vw;
+  height: 4vh;
+}
+
+#behind img{
+  padding-right: 3rem;
+}
+
+#following img{
+  padding-left: 0.5rem;
+}
