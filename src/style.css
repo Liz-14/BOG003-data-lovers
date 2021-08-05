@@ -49,6 +49,10 @@ header{
   width: 100%;
 }
 
+.menu{
+  display: none;
+}
+
 .alphabet{
   grid-column: 2/3;
   grid-row: 1;
@@ -117,6 +121,7 @@ header{
   padding-left: 20px;
   margin-bottom: 5%;
   transition: all 0.25s ease;
+  outline:none;
 }
 
 #search:hover{
@@ -126,6 +131,7 @@ header{
 .searchName{
   width:80%;
   position: relative;
+  outline:none;
 }
 .searchName button{
   background-color: transparent;
@@ -229,7 +235,7 @@ header{
   color: white;
 }
 
-.poke-div:hover > .info-div{
+.poke-div:hover .info-div{
   opacity: 1;
   visibility: visible;
 }

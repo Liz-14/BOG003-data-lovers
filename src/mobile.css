@@ -1,9 +1,16 @@
+body{
+  background-image: url(./img/fondoRes.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 main{
   max-width: none;
   margin-top: 14rem;
   width: 98vw;
   padding-top: 2%;
-  margin-top: 18rem;
+  margin-top: 13rem;
   border-radius: 0px;
   margin-bottom: 0;
   padding-bottom: 1rem;
@@ -37,19 +44,21 @@ header{
 }
 
 #filter{
-  padding: 3% 0%;
+  padding: 3% 0% 3% 3%;
+  width: 80%;
+  margin: 0;
 }
 
 .searchName input{
   height: 30px;
   font-size: 1rem;
-  width: 130%;
+;
 }
 
 #filter select{
-  height: 30px;
+  height: 32px;
   font-size: 1rem;
-  width: 114%;
+  margin: 0;
 }
 
 .searchName button img{
@@ -58,7 +67,7 @@ header{
 }
 
 .searchName button{
-  right: -65px;
+  right: -45px;
 }
 
 #welcome-text{
@@ -77,7 +86,7 @@ header{
 }
 #pokemonList{
   flex-direction: column;
-  max-height: 90vh;
+  max-height: 130vh;
   padding-left: 3.5%;
 }
 
@@ -91,7 +100,7 @@ header{
 
 #pokeGallery button{
   text-align: center;
-  margin-left: 10rem;
+  margin-left: 50%;
   margin-bottom: 1rem;
   margin-top: 1rem;
   width: 12vw;
@@ -110,3 +119,51 @@ header{
 #following img{
   padding-left: 0.5rem;
 }
+
+.info-div{
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+}
+
+.info-div h3{
+  font-size: 1.4rem;
+}
+
+.info-div span{
+  font-size: 1rem;
+  padding: 2% 5%;
+}
+
+.menu{
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 2% 0%;
+  border-top: 3px solid #402401;
+  border-bottom: 3px solid #402401;
+}
+
+#menu {
+  width: 100%;
+  background: transparent;
+  border-style: none;
+  outline:none;
+}
+
+#menu span{
+    margin-left: 3%;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #19212D;
+}
+
+#allBtn{
+display: none;
+}
+
+#filter{
+  display: none;
+}
+
+/* ----- Modal ----- */
