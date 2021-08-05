@@ -167,3 +167,43 @@ display: none;
 }
 
 /* ----- Modal ----- */
+
+.bigCard{
+  top: 5%;
+  margin: 3%;
+  width: 82%;
+  padding: 5%;
+}
+
+.twoDiv img {
+  top: -25%;
+  width: 42vw;
+  height: 24vh;
+}
+
+.twoDiv h3 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.twoDiv h2 {
+  font-size: 1.5rem;
+}
+
+.statsDiv span{
+  font-size: 0.95rem;
+  margin: 0.6%;
+}
+
+.statsDiv{
+  display: flex;
+}
+
+.type{
+  font-size: 1rem;
+}
+
+#close-modal-container{
+  width: 40px;
+  height: 40px;
+}
