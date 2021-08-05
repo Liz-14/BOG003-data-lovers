@@ -46,6 +46,7 @@ export const sortData = (data, sortBy, sortOrder) => {
         }
   }
 
+
   //Busqueda por nombre
   if (sortBy === "searchName") {
     data.forEach((item, i) => {

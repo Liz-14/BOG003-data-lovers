@@ -449,3 +449,22 @@ for (var i = 0; i < btns.length; i++) {
 //Evento que permite el funcionamiento del "search" en tiempo real
 let inputSearch = document.getElementById('search');
 inputSearch.addEventListener("keyup", pokeSearch);
+
+/*-------------------------- Menu Mobile -----------------------*/
+let divFilter = document.getElementById('filter');
+let divAllBtn = document.getElementById('allBtn');
+
+console.log(getComputedStyle(divFilter).display);
+const menu = () => {
+  if(getComputedStyle(divFilter).display == 'none' &&getComputedStyle(divAllBtn).display == 'none'){
+    divFilter.style.display = 'block';
+    divAllBtn.style.display = 'block';
+  }
+  else {
+    divFilter.style.display = 'none';
+    divAllBtn.style.display = 'none';
+  }
+}
+
+let btnMenu= document.getElementById('menu');
+btnMenu.addEventListener("click", menu);
