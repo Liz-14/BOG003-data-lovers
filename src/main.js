@@ -313,6 +313,7 @@ const modal = (name) => {
 
     // numero de pokemon card
      let h3 = document.createElement('h3');
+     h3.className = 'num';
      h3.textContent = '# ' + modalData[0].num;
      twoDiv.appendChild(h3);
 
@@ -334,15 +335,12 @@ const modal = (name) => {
     twoDiv.appendChild(statsDiv);
 
     const batack = document.createElement('span');
-    batack.textContent = "Atack " + modalData[0].stats['base-attack'];
+    batack.textContent = "Ataque " + modalData[0].stats['base-attack'];
     statsDiv.appendChild(batack);
 
     const baseDefense = document.createElement('span');
-    baseDefense.textContent ="Defense " + modalData[0].stats['base-defense'];
+    baseDefense.textContent ="Defensa " + modalData[0].stats['base-defense'];
     statsDiv.appendChild(baseDefense);
-
-    const stamina = document.createElement('span');
-    stamina.textContent ="Stamina " + modalData[0].stats['stamina'];
 
     const cp = document.createElement('span');
     cp.textContent = "CP " + modalData[0].stats['max-cp'];
@@ -351,6 +349,11 @@ const modal = (name) => {
     const hp = document.createElement('span');
     hp.textContent = "HP " + modalData[0].stats['max-hp'];
     statsDiv.appendChild(hp);
+
+    const stamina = document.createElement('span');
+    stamina.id = 'stamina';
+    stamina.textContent ="Fortaleza " + modalData[0].stats['base-stamina'];
+    statsDiv.appendChild(stamina);
 
     let resistDiv = document.createElement('div');
     resistDiv.className = 'resistDiv';
