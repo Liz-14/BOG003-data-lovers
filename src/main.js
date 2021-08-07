@@ -1,9 +1,6 @@
 import {sortData, filterData, check} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
-//console.log(computeStats(data.pokemon));
-console.log(sortData(data.pokemon, 'basic-stats', 'average'));
-
 //Funcion que permite crear las card de cada pokemon
 const pokeTemplate = (pokeData) => {
 
@@ -130,9 +127,6 @@ const typeStyle = () => {
 
 //se inicia contador
 let num = 6
-let width = window.innerWidth;
-console.log(width);
-
  // se muestran los primeros 6 pokemon de la lista
 const pokeGallery = () => {
   for(let i = num - 6; i < num; i++){
@@ -390,14 +384,14 @@ const modal = (name) => {
     nameweakness.textContent = 'Debilidad'
     weaknesDiv.appendChild(nameweakness);
 
-    modalData[0].resistant.forEach((item, i) => {
+    modalData[0].resistant.forEach(item => {
       let resistance = document.createElement('span');
        resistance.className = 'type'
        resistance.textContent = item[0].toUpperCase() + item.substring(1);
        resistDiv.appendChild(resistance);
     });
 
-    modalData[0].weaknesses.forEach((item, i) => {
+    modalData[0].weaknesses.forEach(item => {
       let weaknesses = document.createElement('span');
        weaknesses.className = 'type'
        weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
