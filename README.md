@@ -72,11 +72,11 @@ Las características mostradas a los usuarios mediante esta página web, les per
 ![Final Laptop](prototype/pokeWebLaptop.gif)
 
 ### Mobile Samsung
-![mobile1](prototype/mobile1.jpg)
-![mobile2](prototype/mobile2.jpg)
-![mobile3](prototype/mobile3.jpg)
-![mobile4](prototype/mobile4.jpg)
-![mobile5](prototype/mobile5.jpg)
+![mobile1](prototype/1Mobile.png)
+![mobile2](prototype/2Mobile.png)
+![mobile3](prototype/3Mobile.png)
+![mobile4](prototype/4Mobile.png)
+![mobile5](prototype/5Mobile.png)
 
 ## Test
 ![Test1](prototype/TestPokeWeb2.png)
