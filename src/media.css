@@ -1,10 +1,5 @@
 /* MEDIA Q */
 
-@media(min-width:1440px){
-    .twoDiv img {
-      left: 43%;
-  }
-  }
   @media(max-width:1360px){
     .twoDiv {
       padding-top: 2rem;

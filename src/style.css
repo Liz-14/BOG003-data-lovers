@@ -299,12 +299,7 @@ footer nav ul li{
 
 #behind:hover, #following:hover{
   background-color: #304154;
-  border: #19212D 1px solid;
   transition: all 0.25s ease;
-}
-
-#behind:active, #following:active{
-  border: #19212D 3px solid;
 }
 
 footer{
@@ -351,13 +346,12 @@ footer{
 #stamina{
   margin-right: 2.5%;
 }
-.twoDiv span.resist{
 
-}
+
 .twoDiv img {
   position: absolute;
   top: -18%;
-  left: 30%;
+  left: 31%;
   height: 18vh;
   width: 10vw;
 }
