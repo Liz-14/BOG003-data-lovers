@@ -1,6 +1,9 @@
 import {sortData, filterData, check} from './data.js';
 import data from './data/pokemon/pokemon.js';
 
+//console.log(computeStats(data.pokemon));
+console.log(sortData(data.pokemon, 'basic-stats', 'average'));
+
 //Funcion que permite crear las card de cada pokemon
 const pokeTemplate = (pokeData) => {
 
@@ -135,7 +138,7 @@ const pokeGallery = () => {
   for(let i = num - 6; i < num; i++){
     document.getElementsByClassName('poke-div')[i].style.display = 'block';
   }
-} 
+}
 
 //Limpia galeria
 const galleryClean = () =>{
@@ -149,7 +152,7 @@ const galleryClean = () =>{
     pokeList.removeChild(document.getElementsByClassName('poke-div')[0]);
   }
 }
-  
+
 
 /*Funcion que permite mostrar los siguientes 6 pokemon de la lista, y
 oculta los anteriores 6*/
@@ -260,7 +263,7 @@ const groupXZ = () => {
     // Grupo A-Z navBar
 const groupAZ = () => {
   galleryClean();
-  pokeTemplate(data.pokemon);
+  pokeTemplate(check(data.pokemon).pokeData);
   typeStyle();
   pokeGallery();
 }
@@ -275,6 +278,26 @@ const pokeSearch = () => {
   typeStyle();
   pokeGallery();
 }
+
+const chooseSelector = () => {
+  const sortOrder = document.getElementById('select').value;
+  galleryClean();
+  if (sortOrder == 0) {
+    pokeTemplate(check(data.pokemon).pokeData);
+    typeStyle();
+    pokeGallery();
+  }
+  else {
+    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'basic-stats', sortOrder));
+    typeStyle();
+    pokeGallery();
+  }
+}
+
+
+//Eventos que permite el funcionamiento del select
+let selectorActive = document.getElementById('select');
+selectorActive.addEventListener('change', chooseSelector);
 
 //Creacion ventana modal para cada pokemon
 const modal = (name) => {
@@ -454,7 +477,6 @@ inputSearch.addEventListener("keyup", pokeSearch);
 let divFilter = document.getElementById('filter');
 let divAllBtn = document.getElementById('allBtn');
 
-console.log(getComputedStyle(divFilter).display);
 const menu = () => {
   if(getComputedStyle(divFilter).display == 'none' &&getComputedStyle(divAllBtn).display == 'none'){
     divFilter.style.display = 'block';
