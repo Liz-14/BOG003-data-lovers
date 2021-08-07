@@ -153,7 +153,6 @@ const galleryClean = () =>{
   }
 }
 
-
 /*Funcion que permite mostrar los siguientes 6 pokemon de la lista, y
 oculta los anteriores 6*/
 const following = () => {
@@ -293,11 +292,6 @@ const chooseSelector = () => {
     pokeGallery();
   }
 }
-
-
-//Eventos que permite el funcionamiento del select
-let selectorActive = document.getElementById('select');
-selectorActive.addEventListener('change', chooseSelector);
 
 //Creacion ventana modal para cada pokemon
 const modal = (name) => {
@@ -456,6 +450,10 @@ navXZ.addEventListener("click", groupXZ);
 
 let navAZ = document.getElementById('az');
 navAZ.addEventListener("click", groupAZ);
+
+//Evento que permite el funcionamiento del select
+let selectorActive = document.getElementById('select');
+selectorActive.addEventListener('change', chooseSelector);
 
 // funcion que permite ver el boton que haz seleccionado!!
 let btnContainer = document.getElementById("allBtn");
