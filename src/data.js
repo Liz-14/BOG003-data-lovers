@@ -77,10 +77,8 @@ export const computeStats = (data) => {
   });
 
   let newData = data.map((item, i) => {
-    sum.map(element => {
-      item['sum'] = sum[i];
-      item['average'] = average[i].toFixed(2);
-    })
+    item['sum'] = sum[i];
+    item['average'] = average[i].toFixed(2);
     return item
   });
 

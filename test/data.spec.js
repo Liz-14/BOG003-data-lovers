@@ -7,6 +7,11 @@ const initialData = [{name: 'xatu'}, {name: 'jolteon'}, {name: 'raichu'}, {name:
 
 const dataGallery = [{name: 'xatu'}, {name: 'jolteon'}, {name: 'raichu'}, {name:'lugia'}]
 
+const dataStats = [{num: '178', name: 'xatu', 'stats':{'base-attack':'192', 'base-defense': '146', 'base-stamina': '163' }},
+                  {num: '135', name: 'jolteon', 'stats':{'base-attack':'232', 'base-defense': '182', 'base-stamina': '163' }},
+                  {num: '026', name: 'raichu', 'stats':{'base-attack':'193', 'base-defense': '151', 'base-stamina': '155' }},
+                  {num: '249', name:'lugia', 'stats':{'base-attack':'193', 'base-defense': '310', 'base-stamina': '235' }}]
+
 describe ('check: ', () => {
   it('Deberia ser una funcion', () => {
     expect(typeof check).toBe('function');
@@ -77,6 +82,15 @@ describe('sortData: ', () => {
          it('Deberia retornar los pokemon que contengan el parametro "eon"', () => {
              expect(sortData(initialData, 'searchName', 'eon')).toEqual(pokeSearch);
            });
+
+         const sumStats = [{average:'246.00', name:'lugia', num: '249', 'stats':{'base-attack':'193', 'base-defense': '310', 'base-stamina': '235' }, sum: 738},
+                          {average:'192.33', name: 'jolteon', num: '135', 'stats':{'base-attack':'232', 'base-defense': '182', 'base-stamina': '163'}, sum: 577},
+                          {average:'167.00', name: 'xatu', num: '178', 'stats':{'base-attack':'192', 'base-defense': '146', 'base-stamina': '163' }, sum: 501},
+                          {average:'166.33', name: 'raichu', num: '026', 'stats':{'base-attack':'193', 'base-defense': '151', 'base-stamina': '155' }, sum: 499}]
+
+        it('retorna la data con el calculo de la suma de los stats integrado, de mayor a menor', () => {
+            expect(sortData(dataStats, 'basic-stats', 'sum')).toEqual(sumStats);
+          });
 });
 
 
