@@ -65,7 +65,7 @@ Las características mostradas a los usuarios mediante esta página web, les per
 
 ### Pantalla 1920 x 1080
 
-![Final PC](prototype/pokeWebPC2.gif)
+![Final PC](prototype/pokeWebPC3.gif)
 
 ### Laptop 1366 x 768
 
