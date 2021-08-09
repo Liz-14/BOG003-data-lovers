@@ -204,3 +204,7 @@ display: none;
   width: 40px;
   height: 40px;
 }
+
+.resistDiv span, .weaknetDiv span{
+  padding: 1% 2%;
+}

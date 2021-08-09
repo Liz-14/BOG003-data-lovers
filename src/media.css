@@ -216,7 +216,7 @@
     }
 
     .bigCard{
-      width: 32%;
+      width: 35%;
       height: auto;
     }
 
@@ -230,8 +230,8 @@
     }
 
     .twoDiv img {
-      top: -8%;
-      width: 100%:;
+      top: -21%;
+      width: 50%;
       height: auto;
       text-align: center;
     }
