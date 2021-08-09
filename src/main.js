@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import {sortData, filterData, check} from './data.js';
-import data from './data/pokemon/pokemon.js';
-
-//Funcion que permite crear las card de cada pokemon
-=======
 import { sortData, filterData, check } from './data.js'
 import data from './data/pokemon/pokemon.js'
 
 // Funcion que permite crear las card de cada pokemon
->>>>>>> 1b4b5c0 (Se instala eslint y se le da formato al codigo)
 const pokeTemplate = (pokeData) => {
   // Contenedor que mostrara la list de pokemon
   const list = document.getElementById('pokemonList')
@@ -132,7 +125,7 @@ const typeStyle = () => {
 
 // se inicia contador
 let num = 6
- // se muestran los primeros 6 pokemon de la lista
+// se muestran los primeros 6 pokemon de la lista
 const pokeGallery = () => {
   for (let i = num - 6; i < num; i++) {
     document.getElementsByClassName('poke-div')[i].style.display = 'block'
@@ -258,17 +251,10 @@ const groupXZ = () => {
 
 // Grupo A-Z navBar
 const groupAZ = () => {
-<<<<<<< HEAD
-  galleryClean();
-  pokeTemplate(check(data.pokemon).pokeData);
-  typeStyle();
-  pokeGallery();
-=======
   galleryClean()
   pokeTemplate(check(data.pokemon).pokeData)
   typeStyle()
   pokeGallery()
->>>>>>> 1b4b5c0 (Se instala eslint y se le da formato al codigo)
 }
 
 // Busqueda de pokemon por nombre
@@ -285,7 +271,7 @@ const pokeSearch = () => {
 const chooseSelector = () => {
   const sortOrder = document.getElementById('select').value
   galleryClean()
-  if (sortOrder === 0) {
+  if (sortOrder === '0') {
     pokeTemplate(check(data.pokemon).pokeData)
     typeStyle()
     pokeGallery()
@@ -296,139 +282,6 @@ const chooseSelector = () => {
   }
 }
 
-<<<<<<< HEAD
-const chooseSelector = () => {
-  const sortOrder = document.getElementById('select').value;
-  galleryClean();
-  if (sortOrder == 0) {
-    pokeTemplate(check(data.pokemon).pokeData);
-    typeStyle();
-    pokeGallery();
-  }
-  else {
-    pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'basic-stats', sortOrder));
-    typeStyle();
-    pokeGallery();
-  }
-}
-
-//Creacion ventana modal para cada pokemon
-const modal = (name) => {
-  //----------- Se crea dinamicamente toda la ventana modal -------------------
-     //creo el div que contendra la informacion de cada pokemon
-      const main = document.getElementById('main');
-
-      const content = document.createElement('div');
-      content.id = 'content';
-      main.appendChild(content);
-
-      const bigCard = document.createElement('div');
-      bigCard.id = 'bigCard';
-      bigCard.className = 'bigCard'
-      content.appendChild(bigCard);
-
-      const btnCloseModal = document.createElement('button');
-      btnCloseModal.type = 'button';
-      btnCloseModal.id = 'close-modal-container';
-      btnCloseModal.textContent = 'x';
-      bigCard.appendChild(btnCloseModal);
-
-      const pokemonCard = document.getElementById('bigCard');
-
-       const twoDiv = document.createElement('div');
-       twoDiv.className = 'twoDiv';
-       pokemonCard.appendChild(twoDiv);
-
- // Se crea la data q suministra el "filterData"
-   const modalData = filterData(check(data.pokemon).pokeDataInfo, name);
-
-   // imagen de la bigcard
-     let imagen = document.createElement('img');
-     imagen.src = modalData[0].img;
-     twoDiv.appendChild(imagen);
-
-    // numero de pokemon card
-     let h3 = document.createElement('h3');
-     h3.className = 'num';
-     h3.textContent = '# ' + modalData[0].num;
-     twoDiv.appendChild(h3);
-
-     modalData[0].type.forEach((element) => {
-       let type = document.createElement('span');
-       type.className = 'type';
-       type.textContent = element[0].toUpperCase() + element.substring(1);
-       twoDiv.appendChild(type);
-     });
-
-    //nombre de la bigcard
-     let h2 = document.createElement('h2');
-     h2.textContent = modalData[0].name;
-     twoDiv.appendChild(h2);
-
-    //Poke stats
-    const statsDiv = document.createElement('div');
-    statsDiv.className = 'statsDiv';
-    twoDiv.appendChild(statsDiv);
-
-    const batack = document.createElement('span');
-    batack.textContent = "Ataque " + modalData[0].stats['base-attack'];
-    statsDiv.appendChild(batack);
-
-    const baseDefense = document.createElement('span');
-    baseDefense.textContent ="Defensa " + modalData[0].stats['base-defense'];
-    statsDiv.appendChild(baseDefense);
-
-    const cp = document.createElement('span');
-    cp.textContent = "CP " + modalData[0].stats['max-cp'];
-    statsDiv.appendChild(cp);
-
-    const hp = document.createElement('span');
-    hp.textContent = "HP " + modalData[0].stats['max-hp'];
-    statsDiv.appendChild(hp);
-
-    const stamina = document.createElement('span');
-    stamina.id = 'stamina';
-    stamina.textContent ="Fortaleza " + modalData[0].stats['base-stamina'];
-    statsDiv.appendChild(stamina);
-
-    let resistDiv = document.createElement('div');
-    resistDiv.className = 'resistDiv';
-    twoDiv.appendChild(resistDiv);
-
-    const nameresist = document.createElement('h3');
-    nameresist.className = 'namestats';
-    nameresist.textContent = 'Resistencia'
-    resistDiv.appendChild(nameresist);
-
-    let weaknesDiv = document.createElement('div');
-    weaknesDiv.className = 'weaknetDiv';
-    twoDiv.appendChild(weaknesDiv);
-
-    const nameweakness = document.createElement('h3');
-    nameweakness.className = 'namestats';
-    nameweakness.textContent = 'Debilidad'
-    weaknesDiv.appendChild(nameweakness);
-
-    modalData[0].resistant.forEach(item => {
-      let resistance = document.createElement('span');
-       resistance.className = 'type'
-       resistance.textContent = item[0].toUpperCase() + item.substring(1);
-       resistDiv.appendChild(resistance);
-    });
-
-    modalData[0].weaknesses.forEach(item => {
-      let weaknesses = document.createElement('span');
-       weaknesses.className = 'type'
-       weaknesses.textContent = item[0].toUpperCase() + item.substring(1);
-       weaknesDiv.appendChild(weaknesses);
-    });
-
-  content.style.display = 'flex';
-  typeStyle();
-
-  let btnClose = document.getElementById('close-modal-container');
-  btnClose.addEventListener('click',  () => closeModal ());
-=======
 // Creacion ventana modal para cada pokemon
 const modal = (name) => {
   // ----------- Se crea dinamicamente toda la ventana modal -------------------
@@ -545,7 +398,6 @@ const modal = (name) => {
 
   const btnClose = document.getElementById('close-modal-container')
   btnClose.addEventListener('click', () => closeModal())
->>>>>>> 1b4b5c0 (Se instala eslint y se le da formato al codigo)
 }
 
 // Funcion que permite el funcionamiento del boton cerrar de la ventana modal
@@ -592,10 +444,6 @@ navAZ.addEventListener('click', groupAZ)
 const selectorActive = document.getElementById('select')
 selectorActive.addEventListener('change', chooseSelector)
 
-//Evento que permite el funcionamiento del select
-let selectorActive = document.getElementById('select');
-selectorActive.addEventListener('change', chooseSelector);
-
 // funcion que permite ver el boton que haz seleccionado!!
 const btnContainer = document.getElementById('allBtn')
 const btns = btnContainer.getElementsByClassName('btn')
@@ -626,29 +474,5 @@ const menu = () => {
   }
 }
 
-<<<<<<< HEAD
-//Evento que permite el funcionamiento del "search" en tiempo real
-let inputSearch = document.getElementById('search');
-inputSearch.addEventListener("keyup", pokeSearch);
-
-/*-------------------------- Menu Mobile -----------------------*/
-let divFilter = document.getElementById('filter');
-let divAllBtn = document.getElementById('allBtn');
-
-const menu = () => {
-  if(getComputedStyle(divFilter).display == 'none' &&getComputedStyle(divAllBtn).display == 'none'){
-    divFilter.style.display = 'block';
-    divAllBtn.style.display = 'block';
-  }
-  else {
-    divFilter.style.display = 'none';
-    divAllBtn.style.display = 'none';
-  }
-}
-
-let btnMenu= document.getElementById('menu');
-btnMenu.addEventListener("click", menu);
-=======
 const btnMenu = document.getElementById('menu')
 btnMenu.addEventListener('click', menu)
->>>>>>> 1b4b5c0 (Se instala eslint y se le da formato al codigo)
