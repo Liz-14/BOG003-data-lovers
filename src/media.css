@@ -1,5 +1,9 @@
 /* MEDIA Q */
-
+  @media(max-width:1366px){
+    body{
+      background-position: center center;
+    }
+  }
 /* Responsive laptop */
   @media(min-width:1280px) and (max-width:1366px){
     header{
@@ -247,10 +251,3 @@
     .resistDiv span{
       padding: 1% 3%;
     }
-
-
-  /* @media(min-width:320px) and (max-width:768px){
-    nav{
-      display:none;
-    }
-  } */
