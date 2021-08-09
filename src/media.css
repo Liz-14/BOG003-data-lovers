@@ -1,11 +1,41 @@
 /* MEDIA Q */
-  @media(max-width:1366px){
+  @media(max-width:1370px){
     body{
       background-position: center center;
     }
+
+    .bigCard{
+      width: 25%;
+      height: auto;
+    }
+
+    .twoDiv img {
+      top: -24%;
+      width: 45%;
+      height: auto;
+      text-align: center;
+    }
+
+    .statsDiv{
+      display: flex;
+      justify-content: center;
+    }
   }
+
+  @media(max-width:1340px){
+
+    .bigCard{
+      width: 28%;
+    }
+
+    .twoDiv img {
+      top: -21%;
+      width: 40%;
+    }
+  }
+
 /* Responsive laptop */
-  @media(min-width:1280px) and (max-width:1366px){
+  @media(min-width:1176px) and (max-width:1370px){
     header{
       grid-template-columns: 22% 55% 23%;
     }
@@ -58,21 +88,6 @@
         font-size: 18px;
     }
 
-    .bigCard{
-      width: 25%;
-      height: auto;
-    }
-    .twoDiv{
-
-    }
-    .twoDiv img {
-      left: 140px;
-      top: -11%;
-      width: 10vw;
-      height: 19vh;
-
-    }
-
     .num {
       font-size: 1.4rem;
       margin: 0;
@@ -80,10 +95,6 @@
 
     .twoDiv h2 {
       font-size: 1.4rem;
-    }
-
-    .statsDiv{
-      display: flex;
     }
 
     .statsDiv span{
@@ -116,7 +127,7 @@
 
   }
 /* Responsive Tablet */
-  @media(min-width:768px) and (max-width:1280px){
+  @media(min-width:768px) and (max-width:1175px){
     header{
       grid-template-columns: 20% 55% 25%;
     }
@@ -160,6 +171,7 @@
     .info-div h3{
       font-size: 1.3rem;
     }
+
     .type{
       font-size: 0.7rem;
     }
@@ -218,14 +230,10 @@
     }
 
     .twoDiv img {
-      left: 110px;
       top: -8%;
-      width: 13vw;
+      width: 100%:;
       height: auto;
-    }
-
-    .statsDiv{
-      display: flex;
+      text-align: center;
     }
 
     .statsDiv span{

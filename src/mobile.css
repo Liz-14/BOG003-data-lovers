@@ -176,9 +176,10 @@ display: none;
 }
 
 .twoDiv img {
-  top: -30%;
+  top: -23%;
   width: 42vw;
   height: 24vh;
+  text-align: center;
 }
 
 .twoDiv h3 {
@@ -193,10 +194,6 @@ display: none;
 .statsDiv span{
   font-size: 0.95rem;
   margin: 0.6%;
-}
-
-.statsDiv{
-  display: flex;
 }
 
 .type{
