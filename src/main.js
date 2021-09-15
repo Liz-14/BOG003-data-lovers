@@ -417,10 +417,19 @@ btnBehind.addEventListener('click', behind)
 
 // Eventos que permite el funcionamiento del navBar para cada grupo de letras
 const navAD = document.getElementById('ad')
-navAD.addEventListener('click', groupAD)
+// navAD.addEventListener('click', groupAD)
+
+const groupTest = (e) => {
+  const botton = e.target
+  console.log(botton.dataset.range)
+}
+
+navAD.addEventListener('click', groupTest)
 
 const navEH = document.getElementById('eh')
-navEH.addEventListener('click', groupEH)
+// navEH.addEventListener('click', groupEH)
+
+navEH.addEventListener('click', groupTest)
 
 const navIL = document.getElementById('il')
 navIL.addEventListener('click', groupIL)
