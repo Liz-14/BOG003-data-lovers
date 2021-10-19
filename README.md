@@ -50,9 +50,8 @@ Se desarrolló en Illustrator y Figma, teniendo como base los colores usados en 
 ![mockup responsibeMobile3](prototype/ModalRes.png)
 
 ## Resultado
-### Pagina Web
 
-https://liz-14.github.io/BOG003-data-lovers/src/
+## **[Pagina Web](https://liz-14.github.io/BOG003-data-lovers/src/)**
 
 ### Funcionalidad
 La página permite ver en una galería de imágenes toda la lista de pokémon que se pueden atrapar en pokemon Go. Se puede ver en la página principal un header que contiene el logo de la página, una barra de navegación que permite escoger entre grupos de búsqueda alfabéticos para la visualización de los pokémon por nombre. Igualmente, por medio de un campo de búsqueda por nombre, se puede encontrar una serie de pokemon que contengan la palabra escrita en el campo. También permite el filtrado de pokémon por medio de la suma de sus estadísticas principales, como son: ataque, defensa y fortaleza; así mismo permite filtrar por promedio de las mismas estadísticas,  mostrando así el listado de pokémon organizado de mayor a menor respectivamente.
