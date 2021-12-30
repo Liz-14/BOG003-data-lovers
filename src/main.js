@@ -190,65 +190,6 @@ typeStyle()
 // llamado para la creacion d ela galeria
 pokeGallery()
 
-// Funciones que muestra los grupos de pokemon organizados alfabéticamente
-const groupAD = () => {
-  // Se hace el llamado para limpiar la galeria
-  galleryClean()
-  /* Se hace el llamado del template que toma por parametro la lista ordenada
-  que retorna el "sortData" */
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'abcd'))
-  typeStyle()
-  // se muestran las card por pantalla
-  pokeGallery()
-}
-// grupo E-H Navbar
-const groupEH = () => {
-  galleryClean()
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'efgh'))
-  typeStyle()
-  pokeGallery()
-}
-
-// grupo I-L navBar
-const groupIL = () => {
-  galleryClean()
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'ijkl'))
-  typeStyle()
-  pokeGallery()
-}
-
-// Grupo M-P navBar
-const groupMP = () => {
-  galleryClean()
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'mno'))
-  typeStyle()
-  pokeGallery()
-}
-
-// Grupo Q-T navBar
-const groupQT = () => {
-  galleryClean()
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'pqr'))
-  typeStyle()
-  pokeGallery()
-}
-
-// Grupo U-W navBar
-const groupUW = () => {
-  galleryClean()
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'stuv'))
-  typeStyle()
-  pokeGallery()
-}
-
-// Grupo X-Z navBar
-const groupXZ = () => {
-  galleryClean()
-  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', 'wxyz'))
-  typeStyle()
-  pokeGallery()
-}
-
 // Grupo A-Z navBar
 const groupAZ = () => {
   galleryClean()
@@ -407,6 +348,8 @@ const closeModal = () => {
   main.removeChild(content)
 }
 
+// ----------------------------- EVENTOS --------------------------------------
+
 // Evento que permite el funcionamiento del boton "adelante"
 const btnFollowing = document.getElementById('following')
 btnFollowing.addEventListener('click', following)
@@ -416,38 +359,22 @@ const btnBehind = document.getElementById('behind')
 btnBehind.addEventListener('click', behind)
 
 // Eventos que permite el funcionamiento del navBar para cada grupo de letras
-const navAD = document.getElementById('ad')
-// navAD.addEventListener('click', groupAD)
-
 const groupTest = (e) => {
   const botton = e.target
-  console.log(botton.dataset.range)
+  galleryClean()
+  pokeTemplate(sortData(check(data.pokemon).pokeDataInfo, 'name', botton.dataset.range))
+  typeStyle()
+  pokeGallery()
 }
+const nav = document.getElementById('allBtn')
+nav.addEventListener('click', groupTest)
 
-navAD.addEventListener('click', groupTest)
-
-const navEH = document.getElementById('eh')
-// navEH.addEventListener('click', groupEH)
-
-navEH.addEventListener('click', groupTest)
-
-const navIL = document.getElementById('il')
-navIL.addEventListener('click', groupIL)
-
-const navMP = document.getElementById('mp')
-navMP.addEventListener('click', groupMP)
-
-const navQT = document.getElementById('qt')
-navQT.addEventListener('click', groupQT)
-
-const navVW = document.getElementById('uw')
-navVW.addEventListener('click', groupUW)
-
-const navXZ = document.getElementById('xz')
-navXZ.addEventListener('click', groupXZ)
-
+// Eventos que permite parar la propagacion de evento y el funcionamiento de 'Todos' del nav
 const navAZ = document.getElementById('az')
-navAZ.addEventListener('click', groupAZ)
+navAZ.addEventListener('click', () => {
+  event.stopPropagation()
+  groupAZ()
+})
 
 // Evento que permite el funcionamiento del select
 const selectorActive = document.getElementById('select')
